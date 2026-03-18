@@ -96,6 +96,7 @@ If all four commands pass, the Rust core and Python/Node/MCP access surfaces are
 | `ModuleNotFoundError: memory_sdk` when running pytest | Local Python package not installed into `.venv` | `./.venv/bin/python -m pip install -e python` |
 | `pnpm: command not found` or Corepack error | Corepack not enabled in current shell | `corepack enable` then rerun `corepack pnpm --dir packages/node install` and `corepack pnpm --dir packages/mcp install` |
 | Test commands fail with missing files or wrong paths | Commands executed outside repository root | `cd <your-localmemos-path>` then rerun setup and verification commands from this README |
+| Tests fail after dependency updates or environment changes | Stale local artifacts in `.venv`, `target`, or package build outputs | Run `cargo clean`, remove and recreate `.venv` (`rm -rf .venv && python3 -m venv .venv`), then rerun First-Time Setup and the four verification commands |
 | Native build fails with Rust toolchain not found | Rust toolchain is missing or not on `PATH` | Install Rust via `rustup`, reopen shell, verify `cargo --version`, then rerun setup and tests |
 
 ## Runtime Paths

@@ -41,7 +41,7 @@ This is not an end-user installation guide.
 
 ## Scope
 
-This project only updates `README.md`.
+Implementation output in this round updates only `README.md`.
 
 It should add:
 
@@ -54,9 +54,9 @@ It should not add:
 - code changes
 - scripts or automation
 - CI workflows
-- extra documentation files
+- extra user-facing documentation files outside the normal `docs/superpowers` workflow artifacts
 - Windows setup support in this round
-- `v2` planning content
+- major-version planning content
 
 ## Constraints
 
@@ -147,6 +147,7 @@ Initial target failures:
 - `ModuleNotFoundError: memory_sdk`
 - `pnpm: command not found` or corepack-related failure
 - test command run from wrong directory
+- stale local artifacts causing inconsistent local results
 - native build failure due to missing Rust toolchain in PATH
 
 Fixes must stay short and repository-consistent.
@@ -186,7 +187,7 @@ This round does not aim to:
 - automate environment repair
 - redesign repository documentation architecture
 - change runtime behavior
-- introduce `v2` content
+- introduce major-version planning content
 
 ## Follow-On Work
 
@@ -194,4 +195,4 @@ Possible follow-on (separate rounds):
 
 1. lightweight setup validation script (if troubleshooting volume remains high)
 2. CI-based docs command verification
-3. broader `v2` design work after `v1` polish is stable
+3. broader future-scope design work after `v1` polish is stable

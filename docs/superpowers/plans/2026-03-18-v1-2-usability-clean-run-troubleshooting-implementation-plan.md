@@ -13,8 +13,8 @@
 ## Preconditions
 
 - Follow spec: `docs/superpowers/specs/2026-03-18-v1-2-usability-clean-run-troubleshooting-design.md`
-- Only modify `README.md`
-- Do not add scripts, CI, extra docs, or runtime code changes
+- Modify only `README.md` for implementation content in this plan (workflow artifacts may be updated separately during design/review loops)
+- Do not add scripts, CI, extra user-facing docs outside workflow artifacts, or runtime code changes
 - Keep `v1 MVP` scope boundaries explicit
 
 ## Proposed File Structure
@@ -117,6 +117,7 @@ Expected: New checklist section is short, operational, and does not repeat large
 - `ModuleNotFoundError: memory_sdk`
 - `pnpm: command not found` or corepack-related failure
 - tests run from wrong directory
+- stale local artifacts causing inconsistent local results
 - native build failure due to missing Rust toolchain in PATH
 ```
 
@@ -152,20 +153,20 @@ Expected: All commands pass and confirm README remains operationally accurate
 - [ ] **Step 4: Commit**
 
 ```bash
-git add README.md
+git add README.md  # stage workflow artifacts separately if they changed outside implementation execution
 git commit -m "docs(readme): add v1.2 clean-run troubleshooting guidance"
 ```
 
 ## Acceptance Checklist
 
-- [ ] only `README.md` is modified during implementation
+- [ ] implementation content changes in this plan are limited to `README.md`
 - [ ] `Clean-Run Checklist (macOS + Linux)` is present after `First-Time Setup`
 - [ ] `Common Setup Failures` is present after `Verification Path`
 - [ ] troubleshooting is in markdown table format
 - [ ] required failure scenarios are covered with minimal fixes
 - [ ] repository-root working-directory assumption is explicit
 - [ ] `v1 MVP` boundaries remain intact
-- [ ] no scripts, CI, or extra docs are introduced
+- [ ] no scripts, CI, or extra user-facing docs outside workflow artifacts are introduced
 - [ ] all four verification commands pass
 
 ## Suggested Execution Order
