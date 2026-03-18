@@ -50,16 +50,25 @@ Requirements:
 
 ## Build and Test
 
-This section contains the concrete commands used to verify the current repository state.
+Current verification commands:
+
+```bash
+cargo test --workspace
+./.venv/bin/pytest python/tests -q
+corepack pnpm --dir packages/node test
+corepack pnpm --dir packages/mcp test
+```
 
 ## Runtime Paths
 
-- Embedded mode via Python SDK
-- Embedded mode via Node SDK
-- Local service mode via HTTP
-- Tool integration via MCP
+- Python SDK: embedded local access from Python agents and tools
+- Node SDK: embedded local access from Node tools
+- HTTP: process-external local integration path
+- MCP: tool-based integration for agent environments
 
 ## Development Notes
 
+- `memory-core` is the single source of truth for write, recall, and history semantics.
 - `RecallRequest.include_history` is reserved for compatibility in `v1` and is currently ignored by core recall logic.
 - `GET /facts/{id}/history` expects `{id}` to be a stored `facts.id` row id returned by write/read APIs, and resolves it to the full logical fact version chain.
+- `v1` does not include automatic extraction, vector retrieval, vector databases, or graph-native memory features.
