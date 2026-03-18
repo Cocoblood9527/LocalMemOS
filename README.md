@@ -39,18 +39,35 @@ Out of scope for `v1`:
 - `python`: Python binding and SDK surface
 - `docs/superpowers`: design, planning, and project workflow documents
 
-## Prerequisites
+## Environment Setup
 
-Requirements:
+You will need:
 
 - Rust toolchain
-- Python 3
+- Python 3.10+ with virtual environment support
 - Node.js
 - Corepack
 
-## Build and Test
+## First-Time Setup
 
-Current verification commands:
+Run this once after cloning:
+
+```bash
+python3 -m venv .venv
+./.venv/bin/python -m pip install -U pip pytest maturin
+./.venv/bin/python -m pip install -e python
+corepack enable
+corepack pnpm --dir packages/node install
+corepack pnpm --dir packages/mcp install
+```
+
+- Python tests run from `./.venv`.
+- Install the local Python package into the venv before running pytest.
+- Node and MCP packages manage dependencies independently.
+
+## Verification Path
+
+Run these checks for a healthy local state:
 
 ```bash
 cargo test --workspace
@@ -59,6 +76,8 @@ corepack pnpm --dir packages/node test
 corepack pnpm --dir packages/mcp test
 ```
 
+If all four commands pass, the Rust core and Python/Node/MCP access surfaces are in sync locally.
+
 ## Runtime Paths
 
 - Python SDK: embedded local access from Python agents and tools
@@ -66,9 +85,11 @@ corepack pnpm --dir packages/mcp test
 - HTTP: process-external local integration path
 - MCP: tool-based integration for agent environments
 
-## Development Notes
+## Current Dev Workflow Notes
 
-- `memory-core` is the single source of truth for write, recall, and history semantics.
+- `memory-core` is the single semantic source of truth for write, recall, and history behavior.
+- Thin adapters should follow core semantics rather than redefining them.
+- This repository remains intentionally scoped as `v1 MVP`.
 - `RecallRequest.include_history` is reserved for compatibility in `v1` and is currently ignored by core recall logic.
 - `GET /facts/{id}/history` expects `{id}` to be a stored `facts.id` row id returned by write/read APIs, and resolves it to the full logical fact version chain.
 - `v1` does not include automatic extraction, vector retrieval, vector databases, or graph-native memory features.
