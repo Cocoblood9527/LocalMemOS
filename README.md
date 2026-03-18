@@ -89,6 +89,32 @@ corepack pnpm --dir packages/mcp test
 
 If all four commands pass, the Rust core and Python/Node/MCP access surfaces are in sync locally.
 
+## When To Re-Validate Commands
+
+Run `Minimum Regression Order` at least once after any of the following:
+
+- dependency manifest or lockfile changes (Rust/Python/Node)
+- Rust/Python/Node runtime or toolchain updates
+- edits to command-bearing sections in this README
+- crate or package changes that affect build/test surfaces
+
+## Minimum Regression Order
+
+This is the minimum default order for command drift checks. Expand it for broader change sets.
+
+```bash
+cargo test --workspace
+./.venv/bin/pytest python/tests -q
+corepack pnpm --dir packages/node test
+corepack pnpm --dir packages/mcp test
+```
+
+## Failure Triage Rule
+
+- If a README command no longer matches repository reality, treat it as documentation drift and update README.
+- If commands are valid but local machine state is inconsistent, treat it as an environment issue and apply matrix recovery.
+- If commands are valid and environment is stable but tests fail, treat it as a code regression and escalate.
+
 ## Clean-Run Validation Matrix (macOS + Linux)
 
 `First-Time Setup` remains the source of truth for command order. This matrix is a pass/fail and quick-recovery overlay for each command.
