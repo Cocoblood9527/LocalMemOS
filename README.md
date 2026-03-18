@@ -29,6 +29,38 @@ Out of scope for `v1`:
 - multi-user or multi-tenant support
 - reflective, episodic, emotional, or procedural memory systems
 
+## Role-Based Operation Paths
+
+Use the role path that best matches your current change. If unsure, start with `Clean-Run Verifier`, then apply `Failure Triage Rule`.
+
+### Docs Maintainer
+
+- Use this path when: editing README commands, setup wording, or workflow guidance without code behavior changes.
+- Read first: `Verification Path`, `When To Re-Validate Commands`, `Minimum Regression Order`, `Failure Triage Rule`.
+- Run at minimum: `Minimum Regression Order` after command-bearing doc edits.
+- Escalate when: a README command no longer matches repository reality (documentation drift).
+
+### Core Semantics Maintainer
+
+- Use this path when: changing `crates/memory-core` write/recall/history semantics.
+- Read first: `Current Dev Workflow Notes` and `Repository Layout` (`memory-core` remains semantic source of truth).
+- Run at minimum: full `Minimum Regression Order`, keeping command order unchanged.
+- Escalate when: tests fail with valid commands and stable environment (code regression).
+
+### Adapter Surface Maintainer
+
+- Use this path when: changing HTTP/Python/Node/MCP adapter layers without redefining `memory-core` semantics.
+- Read first: `Repository Layout`, `Verification Path`, and `Failure Triage Rule`.
+- Run at minimum: full `Minimum Regression Order`; adapters must stay aligned with core semantics.
+- Escalate when: adapter behavior diverges from core semantics or verification fails after environment recovery.
+
+### Clean-Run Verifier
+
+- Use this path when: validating local machine state, onboarding, or recovering from inconsistent setup.
+- Read first: `First-Time Setup`, `Clean-Run Checklist (macOS + Linux)`, `Clean-Run Validation Matrix (macOS + Linux)`.
+- Run at minimum: `Verification Path` in listed order from repository root.
+- Escalate when: matrix recovery cannot restore a clean run, then classify via `Failure Triage Rule`.
+
 ## Repository Layout
 
 - `crates/memory-core`: core storage, write semantics, recall semantics, and history logic
