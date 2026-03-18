@@ -83,6 +83,22 @@ corepack pnpm --dir packages/mcp test
 
 If role selection or failure classification is unclear, apply `Failure Triage Rule`.
 
+## Change-to-Validation Mapping
+
+Use this table to pick first-pass checks from touched areas. Before closing a round, run full `Minimum Regression Order`.
+
+| If you changed... | First-pass checks | Then |
+| --- | --- | --- |
+| `README.md` or docs-only workflow wording | `cargo test --workspace` | Run full `Minimum Regression Order` before closure |
+| `crates/memory-core/**` | `cargo test --workspace` | Then run `./.venv/bin/pytest python/tests -q`, `corepack pnpm --dir packages/node test`, `corepack pnpm --dir packages/mcp test` |
+| `crates/memory-http/**` | `cargo test --workspace` | Then run `./.venv/bin/pytest python/tests -q` and full `Minimum Regression Order` |
+| `python/**` | `./.venv/bin/pytest python/tests -q` | Then run full `Minimum Regression Order` |
+| `packages/node/**` | `corepack pnpm --dir packages/node test` | Then run `corepack pnpm --dir packages/mcp test` and full `Minimum Regression Order` |
+| `packages/mcp/**` | `corepack pnpm --dir packages/mcp test` | Then run full `Minimum Regression Order` |
+| mixed or unclear multi-surface changes | run full `Minimum Regression Order` immediately | Classify failures with `Failure Triage Rule` |
+
+If scope is unclear or failure classification is ambiguous at any point, apply `Failure Triage Rule` and use full `Minimum Regression Order`.
+
 ## Repository Layout
 
 - `crates/memory-core`: core storage, write semantics, recall semantics, and history logic
