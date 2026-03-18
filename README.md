@@ -61,6 +61,28 @@ Use the role path that best matches your current change. If unsure, start with `
 - Run at minimum: `Verification Path` in listed order from repository root.
 - Escalate when: matrix recovery cannot restore a clean run, then classify via `Failure Triage Rule`.
 
+## 30-Second Path Picker
+
+Pick one row, start from the linked section, then run the minimum command action.
+
+| If your change is... | Use role path | Start here | Minimum command action |
+| --- | --- | --- | --- |
+| README command or workflow wording updates | `Docs Maintainer` | `When To Re-Validate Commands` + `Minimum Regression Order` | Run `Minimum Regression Order` after command-bearing edits |
+| `memory-core` write/recall/history semantics | `Core Semantics Maintainer` | `Current Dev Workflow Notes` + `Verification Path` | Run full four-command sequence in listed order |
+| HTTP/Python/Node/MCP adapter-layer updates | `Adapter Surface Maintainer` | `Repository Layout` + `Verification Path` | Run full four-command sequence in listed order |
+| Local setup/onboarding/recovery checks | `Clean-Run Verifier` | `First-Time Setup` + `Clean-Run Validation Matrix (macOS + Linux)` | Run `Verification Path` from repository root |
+
+Minimum command set (same as `Verification Path` and `Minimum Regression Order`):
+
+```bash
+cargo test --workspace
+./.venv/bin/pytest python/tests -q
+corepack pnpm --dir packages/node test
+corepack pnpm --dir packages/mcp test
+```
+
+If role selection or failure classification is unclear, apply `Failure Triage Rule`.
+
 ## Repository Layout
 
 - `crates/memory-core`: core storage, write semantics, recall semantics, and history logic
