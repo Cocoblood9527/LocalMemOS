@@ -10,7 +10,24 @@ Deeper design and implementation context lives under `docs/superpowers/`. This R
 
 ## Current Status
 
-This section summarizes what `v1` currently includes and what remains intentionally out of scope.
+Supported in `v1`:
+
+- Rust `memory-core` as the single source of truth for memory semantics
+- SQLite-backed fact storage
+- explicit fact writes via `upsert_fact`
+- exact recall and structured filtering
+- FTS fallback for text recall
+- time-aware history and `as_of` recall
+- HTTP, Python, Node, and MCP access paths
+
+Out of scope for `v1`:
+
+- automatic memory extraction
+- vector retrieval and vector databases
+- graph-native memory and graph reasoning
+- cloud sync
+- multi-user or multi-tenant support
+- reflective, episodic, emotional, or procedural memory systems
 
 ## Repository Layout
 
