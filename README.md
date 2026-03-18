@@ -65,6 +65,17 @@ corepack pnpm --dir packages/mcp install
 - Install the local Python package into the venv before running pytest.
 - Node and MCP packages manage dependencies independently.
 
+## Clean-Run Checklist (macOS + Linux)
+
+1. Run commands from the repository root (the directory that contains `README.md` and `Cargo.toml`).
+2. Ensure `.venv` exists, use explicit `./.venv/bin/...` calls, and confirm editable install with `./.venv/bin/python -m pip install -e python`.
+3. Ensure `corepack enable` has been run in your shell.
+4. Ensure dependencies are installed for both `packages/node` and `packages/mcp`.
+5. Run all four verification commands in order.
+
+- All commands in this README assume the repository root as working directory.
+- If local state looks inconsistent, rerun First-Time Setup commands before deeper debugging.
+
 ## Verification Path
 
 Run these checks for a healthy local state:
@@ -77,6 +88,15 @@ corepack pnpm --dir packages/mcp test
 ```
 
 If all four commands pass, the Rust core and Python/Node/MCP access surfaces are in sync locally.
+
+## Common Setup Failures
+
+| Symptom | Likely Cause | Minimal Fix |
+| --- | --- | --- |
+| `ModuleNotFoundError: memory_sdk` when running pytest | Local Python package not installed into `.venv` | `./.venv/bin/python -m pip install -e python` |
+| `pnpm: command not found` or Corepack error | Corepack not enabled in current shell | `corepack enable` then rerun `corepack pnpm --dir packages/node install` and `corepack pnpm --dir packages/mcp install` |
+| Test commands fail with missing files or wrong paths | Commands executed outside repository root | `cd <your-localmemos-path>` then rerun setup and verification commands from this README |
+| Native build fails with Rust toolchain not found | Rust toolchain is missing or not on `PATH` | Install Rust via `rustup`, reopen shell, verify `cargo --version`, then rerun setup and tests |
 
 ## Runtime Paths
 
