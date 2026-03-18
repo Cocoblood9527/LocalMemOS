@@ -1,0 +1,3 @@
+[workspace]
+members = ["crates/memory-core", "crates/memory-http", "crates/memory-node"]
+resolver = "2"
