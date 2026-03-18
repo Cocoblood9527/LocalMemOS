@@ -31,11 +31,22 @@ Out of scope for `v1`:
 
 ## Repository Layout
 
-This section explains the main repository directories and their responsibilities.
+- `crates/memory-core`: core storage, write semantics, recall semantics, and history logic
+- `crates/memory-http`: HTTP adapter for local process-external access
+- `crates/memory-node`: native Node binding layer
+- `packages/node`: Node SDK wrapper over the native binding
+- `packages/mcp`: MCP adapter built on top of the Node SDK
+- `python`: Python binding and SDK surface
+- `docs/superpowers`: design, planning, and project workflow documents
 
 ## Prerequisites
 
-This section lists the local tools needed to build, test, and verify the project.
+Requirements:
+
+- Rust toolchain
+- Python 3
+- Node.js
+- Corepack
 
 ## Build and Test
 
