@@ -61,6 +61,7 @@ const STOPWORDS: &[&str] = &[
     "on",
     "or",
     "done",
+    "seen",
     "some",
     "that",
     "the",
@@ -169,7 +170,6 @@ mod tests {
             tokens,
             vec![
                 "caroline".to_string(),
-                "seen".to_string(),
                 "during".to_string(),
                 "transition".to_string(),
                 "journey".to_string()
@@ -188,6 +188,21 @@ mod tests {
                 "new".to_string(),
                 "city".to_string(),
                 "lately".to_string()
+            ]
+        );
+    }
+
+    #[test]
+    fn query_tokens_drop_seen_filler() {
+        let tokens =
+            normalize_query_tokens("In what ways has Caroline seen changes during her transition journey?");
+        assert_eq!(
+            tokens,
+            vec![
+                "caroline".to_string(),
+                "during".to_string(),
+                "transition".to_string(),
+                "journey".to_string()
             ]
         );
     }
