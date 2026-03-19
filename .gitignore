@@ -17,3 +17,5 @@ python/**/__pycache__/
 python/**/*.pyc
 python/**/*.pyo
 python/**/*.dSYM/
+tools/**/__pycache__/
+tools/**/*.pyc
