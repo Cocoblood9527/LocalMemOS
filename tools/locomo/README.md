@@ -16,6 +16,7 @@ Repository-owned LoCoMo scripts for retrieval-focused V2 validation.
 - `run-full-gate.sh`: one-shot baseline + threshold checks + drift check + required 4-command matrix
 - `export-failure-samples.py`: exports prioritized retrieval misses
 - `refresh-failure-samples.sh`: refreshes `failure-samples-k5.json` from current retriever
+- `evaluate-single-knob.py`: evaluates fixed single-knob candidates and outputs `APPLY`/`NO-OP`
 
 ## Usage
 
@@ -29,6 +30,7 @@ tools/locomo/run-regression-gate.sh 5
 tools/locomo/run-category-gate.sh 5
 tools/locomo/run-full-gate.sh 5
 tools/locomo/refresh-failure-samples.sh 5 80
+./.venv/bin/python tools/locomo/evaluate-single-knob.py
 ```
 
 All scripts write artifacts to `/tmp` by default (or `BASE_DIR` if provided).
@@ -67,3 +69,16 @@ Triggers:
 - manual `workflow_dispatch`
 
 The workflow uploads gate logs (and result JSON when present) as artifacts.
+
+## Single-Knob Auto-Stop Gate
+
+Run:
+
+```bash
+./.venv/bin/python tools/locomo/evaluate-single-knob.py
+```
+
+Decision rule is hardcoded:
+
+- `APPLY` only when a candidate improves both `overall` and `multi-hop`
+- otherwise `NO-OP`
