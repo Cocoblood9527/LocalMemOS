@@ -201,6 +201,7 @@ tools/locomo/refresh-failure-samples.sh 5 80
 - `run-regression-gate.sh` default threshold is `hit@5 >= 0.55` (second arg can override).
 - `run-category-gate.sh` also checks default category floors for `multi-hop` and `open-domain`.
 - `run-full-gate.sh` runs baseline threshold checks, drift checks, and the required 4-command matrix in one command.
+- CI gate workflow `.github/workflows/locomo-full-gate.yml` runs `REBUILD_PYTHON=0 tools/locomo/run-full-gate.sh 5` on PRs and pushes to `main` (plus manual dispatch), and uploads gate artifacts.
 - If LoCoMo scores unexpectedly remain old, rebuild local Python binding:
   `./.venv/bin/python -m pip install -e python`
 

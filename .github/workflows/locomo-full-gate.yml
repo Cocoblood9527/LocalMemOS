@@ -1,0 +1,74 @@
+name: locomo-full-gate
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  full-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      CARGO_TERM_COLOR: always
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install Python dependencies
+        run: |
+          python -m venv .venv
+          ./.venv/bin/python -m pip install -U pip pytest maturin
+          ./.venv/bin/python -m pip install -e python
+
+      - name: Install Node dependencies
+        run: |
+          corepack pnpm --dir packages/node install --frozen-lockfile
+          corepack pnpm --dir packages/mcp install --frozen-lockfile
+
+      - name: Run LoCoMo full gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          REBUILD_PYTHON=0 tools/locomo/run-full-gate.sh 5 | tee artifacts/locomo-full-gate.log
+
+          base_dir="$(grep -Eo '\[full-gate\] BASE_DIR=.*' artifacts/locomo-full-gate.log | tail -n1 | sed 's/.*BASE_DIR=//')"
+          result_json="$(grep -Eo '\[full-gate\] RESULT_JSON=.*' artifacts/locomo-full-gate.log | tail -n1 | sed 's/.*RESULT_JSON=//')"
+
+          if [[ -n "${base_dir}" ]]; then
+            printf '%s\n' "${base_dir}" > artifacts/base_dir.txt
+          fi
+
+          if [[ -n "${result_json}" && -f "${result_json}" ]]; then
+            cp "${result_json}" artifacts/
+          fi
+
+      - name: Upload gate artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: locomo-full-gate
+          path: artifacts/
+          if-no-files-found: warn
