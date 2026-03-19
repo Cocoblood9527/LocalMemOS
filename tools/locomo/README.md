@@ -8,7 +8,9 @@ Repository-owned LoCoMo scripts for retrieval-focused V2 validation.
 - `qa-proxy.sh`: computes retrieval and QA proxy scores
 - `official-like-eval.sh`: computes LoCoMo official-like outputs
 - `assert-hit-threshold.py`: validates `baseline.sh` result against threshold
+- `assert-locomo-thresholds.py`: validates overall + category thresholds
 - `run-regression-gate.sh`: one-shot baseline + threshold gate (default threshold `0.55`)
+- `run-category-gate.sh`: baseline + category-aware gate (defaults: overall `0.55`, multi-hop `0.42`, open-domain `0.32`)
 - `export-failure-samples.py`: exports prioritized retrieval misses
 - `refresh-failure-samples.sh`: refreshes `failure-samples-k5.json` from current retriever
 
@@ -21,6 +23,7 @@ tools/locomo/baseline.sh 5
 tools/locomo/qa-proxy.sh 5
 tools/locomo/official-like-eval.sh 5
 tools/locomo/run-regression-gate.sh 5
+tools/locomo/run-category-gate.sh 5
 tools/locomo/refresh-failure-samples.sh 5 80
 ```
 
