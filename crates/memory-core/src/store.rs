@@ -288,6 +288,7 @@ impl MemoryStore {
                 left.1
                     .partial_cmp(&right.1)
                     .unwrap_or(Ordering::Equal)
+                    .then_with(|| right.2.partial_cmp(&left.2).unwrap_or(Ordering::Equal))
                     .then_with(|| right.0.updated_at.cmp(&left.0.updated_at))
             });
         } else {
