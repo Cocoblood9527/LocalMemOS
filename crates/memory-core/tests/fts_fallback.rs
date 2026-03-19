@@ -223,3 +223,38 @@ fn ranking_prefers_multiclue_bigram_alignment() {
     assert!(!result.facts.is_empty());
     assert_eq!(result.facts[0].attribute, "200");
 }
+
+#[test]
+fn long_query_prefers_rerank_signal_over_recency() {
+    let mut store = MemoryStore::open(":memory:").unwrap();
+    store
+        .upsert_fact(UpsertFactRequest::manual(
+            "benchmark",
+            "sample-long-1",
+            "dialog",
+            "300",
+            "Melanie has three children family talks often",
+        ))
+        .unwrap();
+    sleep(Duration::from_millis(10));
+    store
+        .upsert_fact(UpsertFactRequest::manual(
+            "benchmark",
+            "sample-long-1",
+            "dialog",
+            "301",
+            "Melanie family children three has talks often",
+        ))
+        .unwrap();
+
+    let result = store
+        .recall(RecallRequest::text(
+            "benchmark",
+            "sample-long-1",
+            "Melanie children family talks often weekend update now",
+        ))
+        .unwrap();
+
+    assert!(!result.facts.is_empty());
+    assert_eq!(result.facts[0].attribute, "300");
+}

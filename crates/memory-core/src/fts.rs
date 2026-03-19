@@ -40,15 +40,26 @@ const STOPWORDS: &[&str] = &[
     "does",
     "for",
     "from",
+    "had",
+    "has",
+    "have",
+    "her",
+    "his",
     "how",
     "in",
     "is",
     "it",
+    "kind",
+    "kinds",
+    "many",
     "of",
     "on",
     "or",
+    "done",
+    "some",
     "that",
     "the",
+    "their",
     "this",
     "to",
     "was",
@@ -120,5 +131,29 @@ fn push_token(token: &str, out: &mut Vec<String>, seen: &mut HashSet<String>, de
     }
     if !dedup || seen.insert(token.to_owned()) {
         out.push(token.to_owned());
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::normalize_query_tokens;
+
+    #[test]
+    fn query_tokens_drop_question_fillers() {
+        let tokens = normalize_query_tokens("How many children does Melanie have?");
+        assert_eq!(tokens, vec!["children".to_string(), "melanie".to_string()]);
+    }
+
+    #[test]
+    fn query_tokens_drop_pronoun_and_completion_fillers() {
+        let tokens = normalize_query_tokens("What activities has Melanie done with her family?");
+        assert_eq!(
+            tokens,
+            vec![
+                "activities".to_string(),
+                "melanie".to_string(),
+                "family".to_string()
+            ]
+        );
     }
 }
