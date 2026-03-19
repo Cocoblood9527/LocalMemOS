@@ -56,6 +56,7 @@ const STOPWORDS: &[&str] = &[
     "it",
     "kind",
     "kinds",
+    "like",
     "many",
     "of",
     "on",
@@ -205,5 +206,11 @@ mod tests {
                 "journey".to_string()
             ]
         );
+    }
+
+    #[test]
+    fn query_tokens_drop_like_filler_keep_subject_anchor() {
+        let tokens = normalize_query_tokens("What do Melanie's kids like?");
+        assert_eq!(tokens, vec!["melanie".to_string(), "kids".to_string()]);
     }
 }
