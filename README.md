@@ -193,12 +193,14 @@ tools/locomo/qa-proxy.sh 5
 tools/locomo/official-like-eval.sh 5
 tools/locomo/run-regression-gate.sh 5
 tools/locomo/run-category-gate.sh 5
+tools/locomo/run-full-gate.sh 5
 tools/locomo/refresh-failure-samples.sh 5 80
 ```
 
 - Scripts write artifacts to `/tmp` by default (or `BASE_DIR` when provided).
 - `run-regression-gate.sh` default threshold is `hit@5 >= 0.55` (second arg can override).
 - `run-category-gate.sh` also checks default category floors for `multi-hop` and `open-domain`.
+- `run-full-gate.sh` runs baseline threshold checks, drift checks, and the required 4-command matrix in one command.
 - If LoCoMo scores unexpectedly remain old, rebuild local Python binding:
   `./.venv/bin/python -m pip install -e python`
 
