@@ -153,3 +153,73 @@ fn ranking_prefers_facts_with_more_query_overlap() {
     assert!(!result.facts.is_empty());
     assert_eq!(result.facts[0].attribute, "10");
 }
+
+#[test]
+fn ranking_prefers_phrase_continuity_over_recency_when_tokens_tie() {
+    let mut store = MemoryStore::open(":memory:").unwrap();
+    store
+        .upsert_fact(UpsertFactRequest::manual(
+            "benchmark",
+            "sample-phrase-1",
+            "dialog",
+            "100",
+            "Alex booked a flight to Seattle on March 3 before the conference",
+        ))
+        .unwrap();
+    sleep(Duration::from_millis(10));
+    store
+        .upsert_fact(UpsertFactRequest::manual(
+            "benchmark",
+            "sample-phrase-1",
+            "dialog",
+            "101",
+            "Alex Seattle March 3 conference before booked a flight to",
+        ))
+        .unwrap();
+
+    let result = store
+        .recall(RecallRequest::text(
+            "benchmark",
+            "sample-phrase-1",
+            "flight Seattle March before conference",
+        ))
+        .unwrap();
+
+    assert!(!result.facts.is_empty());
+    assert_eq!(result.facts[0].attribute, "100");
+}
+
+#[test]
+fn ranking_prefers_multiclue_bigram_alignment() {
+    let mut store = MemoryStore::open(":memory:").unwrap();
+    store
+        .upsert_fact(UpsertFactRequest::manual(
+            "benchmark",
+            "sample-phrase-2",
+            "dialog",
+            "200",
+            "Mina borrowed Leo's camera before hiking in Kyoto at dawn",
+        ))
+        .unwrap();
+    sleep(Duration::from_millis(10));
+    store
+        .upsert_fact(UpsertFactRequest::manual(
+            "benchmark",
+            "sample-phrase-2",
+            "dialog",
+            "201",
+            "Mina Kyoto dawn Leo camera borrowed hiking before in",
+        ))
+        .unwrap();
+
+    let result = store
+        .recall(RecallRequest::text(
+            "benchmark",
+            "sample-phrase-2",
+            "borrowed Leo camera hiking Kyoto",
+        ))
+        .unwrap();
+
+    assert!(!result.facts.is_empty());
+    assert_eq!(result.facts[0].attribute, "200");
+}

@@ -3,7 +3,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 K="${1:-5}"
-THRESHOLD="${2:-0.05}"
+THRESHOLD="${2:-0.55}"
 BASE_DIR="${BASE_DIR:-$(mktemp -d /tmp/localmemos-locomo-regression-gate.XXXXXX)}"
 RESULT_JSON="$BASE_DIR/result_hit_at_${K}.json"
 

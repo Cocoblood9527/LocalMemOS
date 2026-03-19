@@ -191,10 +191,12 @@ Use repository-owned scripts for retrieval-focused V2 tracking:
 tools/locomo/baseline.sh 5
 tools/locomo/qa-proxy.sh 5
 tools/locomo/official-like-eval.sh 5
-tools/locomo/run-regression-gate.sh 5 0.05
+tools/locomo/run-regression-gate.sh 5
+tools/locomo/refresh-failure-samples.sh 5 80
 ```
 
 - Scripts write artifacts to `/tmp` by default (or `BASE_DIR` when provided).
+- `run-regression-gate.sh` default threshold is `hit@5 >= 0.55` (second arg can override).
 - If LoCoMo scores unexpectedly remain old, rebuild local Python binding:
   `./.venv/bin/python -m pip install -e python`
 

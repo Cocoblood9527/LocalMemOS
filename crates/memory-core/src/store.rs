@@ -7,7 +7,7 @@ use chrono::{DateTime, Utc};
 use rusqlite::OptionalExtension;
 
 use crate::error::MemoryError;
-use crate::fts::{build_fts_query, normalize_query_tokens, upsert_fts_row};
+use crate::fts::{build_fts_query, normalize_query_sequence, normalize_query_tokens, upsert_fts_row};
 use crate::model::{FactRecord, FactVersionRecord, RecallResponse};
 use crate::request::{ForgetRequest, ListRequest, RecallRequest, UpsertFactRequest};
 
@@ -207,6 +207,9 @@ impl MemoryStore {
         effective_at: DateTime<Utc>,
     ) -> Result<RecallResponse, MemoryError> {
         let query_tokens = normalize_query_tokens(text_query);
+        let query_sequence = normalize_query_sequence(text_query);
+        let query_bigrams = bigram_set(&query_sequence);
+        let long_query = query_sequence.len() >= 6;
         let fts_query = match build_fts_query(text_query) {
             Some(q) => q,
             None => return Ok(RecallResponse { facts: Vec::new() }),
@@ -253,23 +256,50 @@ impl MemoryStore {
         let mut ranked_facts = Vec::new();
         for raw in raw_rows {
             let row = raw?;
-            let lexical_score = lexical_overlap_score(
+            let candidate_sequence = candidate_sequence(
                 &query_tokens,
                 &row.fts_entity,
                 &row.fts_attribute,
                 row.fts_value_text.as_deref(),
                 row.fts_evidence_summary.as_deref(),
             );
-            ranked_facts.push((raw_to_fact(row.raw)?, row.bm25_rank, lexical_score));
+            let token_coverage = token_coverage_ratio(&query_tokens, &candidate_sequence);
+            let candidate_bigrams = bigram_set(&candidate_sequence);
+            let bigram_coverage = bigram_coverage_ratio(&query_bigrams, &candidate_bigrams);
+            let longest_run = longest_contiguous_run(&query_sequence, &candidate_sequence);
+            let continuity_score = if query_sequence.is_empty() {
+                0.0
+            } else {
+                longest_run as f64 / query_sequence.len() as f64
+            };
+            let phrase_bonus = if longest_run >= 5 { 1.0 } else { 0.0 };
+            let bigram_weight = if long_query { 0.5 } else { 2.2 };
+            let continuity_weight = if long_query { 0.4 } else { 1.2 };
+            let phrase_weight = if long_query { 0.1 } else { 0.6 };
+            let rerank_score = (token_coverage * if long_query { 1.2 } else { 3.0 })
+                + (bigram_coverage * bigram_weight)
+                + (continuity_score * continuity_weight)
+                + (phrase_bonus * phrase_weight);
+            ranked_facts.push((raw_to_fact(row.raw)?, row.bm25_rank, rerank_score));
         }
 
-        ranked_facts.sort_by(|left, right| {
-            left.1
-                .partial_cmp(&right.1)
-                .unwrap_or(Ordering::Equal)
-                .then_with(|| right.2.partial_cmp(&left.2).unwrap_or(Ordering::Equal))
-                .then_with(|| right.0.updated_at.cmp(&left.0.updated_at))
-        });
+        if long_query {
+            ranked_facts.sort_by(|left, right| {
+                left.1
+                    .partial_cmp(&right.1)
+                    .unwrap_or(Ordering::Equal)
+                    .then_with(|| right.0.updated_at.cmp(&left.0.updated_at))
+            });
+        } else {
+            ranked_facts.sort_by(|left, right| {
+                right
+                    .2
+                    .partial_cmp(&left.2)
+                    .unwrap_or(Ordering::Equal)
+                    .then_with(|| left.1.partial_cmp(&right.1).unwrap_or(Ordering::Equal))
+                    .then_with(|| right.0.updated_at.cmp(&left.0.updated_at))
+            });
+        }
 
         let facts = ranked_facts
             .into_iter()
@@ -542,40 +572,87 @@ fn value_as_text(value: &serde_json::Value) -> Option<String> {
     }
 }
 
-fn lexical_overlap_score(
+fn candidate_sequence(
     query_tokens: &[String],
     entity: &str,
     attribute: &str,
     value_text: Option<&str>,
     evidence_summary: Option<&str>,
-) -> f64 {
+) -> Vec<String> {
+    if query_tokens.is_empty() {
+        return Vec::new();
+    }
+
+    let mut candidate_tokens = Vec::new();
+    candidate_tokens.extend(normalize_query_sequence(entity));
+    candidate_tokens.extend(normalize_query_sequence(attribute));
+    if let Some(text) = value_text {
+        candidate_tokens.extend(normalize_query_sequence(text));
+    }
+    if let Some(text) = evidence_summary {
+        candidate_tokens.extend(normalize_query_sequence(text));
+    }
+    candidate_tokens
+}
+
+fn token_coverage_ratio(query_tokens: &[String], candidate_sequence: &[String]) -> f64 {
     if query_tokens.is_empty() {
         return 0.0;
     }
-
-    let mut candidate_tokens = HashSet::new();
-    for token in normalize_query_tokens(entity) {
-        candidate_tokens.insert(token);
-    }
-    for token in normalize_query_tokens(attribute) {
-        candidate_tokens.insert(token);
-    }
-    if let Some(text) = value_text {
-        for token in normalize_query_tokens(text) {
-            candidate_tokens.insert(token);
-        }
-    }
-    if let Some(text) = evidence_summary {
-        for token in normalize_query_tokens(text) {
-            candidate_tokens.insert(token);
-        }
-    }
-
+    let candidate_set = candidate_sequence
+        .iter()
+        .cloned()
+        .collect::<HashSet<String>>();
     let overlap = query_tokens
         .iter()
-        .filter(|token| candidate_tokens.contains(*token))
+        .filter(|token| candidate_set.contains(*token))
         .count();
     overlap as f64 / query_tokens.len() as f64
+}
+
+fn bigram_set(tokens: &[String]) -> HashSet<(String, String)> {
+    let mut out = HashSet::new();
+    for window in tokens.windows(2) {
+        out.insert((window[0].clone(), window[1].clone()));
+    }
+    out
+}
+
+fn bigram_coverage_ratio(
+    query_bigrams: &HashSet<(String, String)>,
+    candidate_bigrams: &HashSet<(String, String)>,
+) -> f64 {
+    if query_bigrams.is_empty() {
+        return 0.0;
+    }
+    let overlap = query_bigrams
+        .iter()
+        .filter(|bigram| candidate_bigrams.contains(*bigram))
+        .count();
+    overlap as f64 / query_bigrams.len() as f64
+}
+
+fn longest_contiguous_run(query_sequence: &[String], candidate_sequence: &[String]) -> usize {
+    if query_sequence.is_empty() || candidate_sequence.is_empty() {
+        return 0;
+    }
+
+    let mut longest = 0;
+    for q_start in 0..query_sequence.len() {
+        for c_start in 0..candidate_sequence.len() {
+            let mut run = 0;
+            while q_start + run < query_sequence.len()
+                && c_start + run < candidate_sequence.len()
+                && query_sequence[q_start + run] == candidate_sequence[c_start + run]
+            {
+                run += 1;
+            }
+            if run > longest {
+                longest = run;
+            }
+        }
+    }
+    longest
 }
 
 fn raw_to_fact(raw: RawFact) -> Result<FactRecord, MemoryError> {
