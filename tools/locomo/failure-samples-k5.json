@@ -1,11 +1,11 @@
 {
   "meta": {
     "k": 5,
-    "limit": 80,
+    "limit": 120,
     "ingested_turns": 5882,
-    "total_misses": 839,
-    "selected_misses": 80,
-    "source_data": "/tmp/localmemos-locomo-r3f-failures/locomo/data/locomo10.json"
+    "total_misses": 828,
+    "selected_misses": 120,
+    "source_data": "/tmp/localmemos-locomo-failure-samples.Nlqi5K/locomo/data/locomo10.json"
   },
   "samples": [
     {
@@ -18,18 +18,18 @@
         "D18:7"
       ],
       "retrieved_top_attrs": [
-        "D8:29",
         "D8:9",
-        "D3:17",
-        "D10:18",
-        "D5:14"
+        "D7:27",
+        "D10:1",
+        "D15:25",
+        "D4:17"
       ],
       "retrieved_top_texts": [
-        "That's awesome, Melanie! How have your family been supportive during your move?",
         "That photo is stunning! So glad you bonded over our love of nature. Last Friday I went to a council meeting for adoption. It was inspiring and emotional - so many people wanted to create loving homes for children in need. It made me even more determined to adopt.",
-        "Congrats, Melanie! You both looked so great on your wedding day! Wishing you many happy years together!",
-        "It was one of those moments where I felt tiny and in awe of the universe. Reminds me how awesome life is - so many little moments like that.",
-        "Sounds awesome, Caroline! Have a great time and learn a lot. Have fun!"
+        "Glad it helped ya, Melanie!",
+        "Hey Melanie! Just wanted to say hi!",
+        "Thanks, Melanie! Appreciate it. You play any instruments?",
+        "Thanks, Melanie! Your kind words mean a lot."
       ]
     },
     {
@@ -62,6 +62,32 @@
       "sample_id": "conv-26",
       "category": 1,
       "category_name": "multi-hop",
+      "question": "What activities does Melanie partake in?",
+      "evidence": [
+        "D5:4",
+        "D9:1",
+        "D1:12",
+        "D1:18"
+      ],
+      "retrieved_top_attrs": [
+        "D7:27",
+        "D10:1",
+        "D15:25",
+        "D4:17",
+        "D14:3"
+      ],
+      "retrieved_top_texts": [
+        "Glad it helped ya, Melanie!",
+        "Hey Melanie! Just wanted to say hi!",
+        "Thanks, Melanie! Appreciate it. You play any instruments?",
+        "Thanks, Melanie! Your kind words mean a lot.",
+        "Thanks, Melanie! That plate is awesome! Did you make it?"
+      ]
+    },
+    {
+      "sample_id": "conv-26",
+      "category": 1,
+      "category_name": "multi-hop",
       "question": "What activities has Melanie done with her family?",
       "evidence": [
         "D8:4",
@@ -72,18 +98,18 @@
         "D3:14"
       ],
       "retrieved_top_attrs": [
-        "D6:13",
-        "D6:16",
-        "D1:6",
-        "D15:10",
-        "D8:29"
+        "D4:9",
+        "D8:29",
+        "D10:23",
+        "D8:28",
+        "D4:10"
       ],
       "retrieved_top_texts": [
-        "Thanks, Melanie! This support network has been amazing. They've been there for me every step of the way giving me love, guidance, and acceptance. I couldn't have done it without them.",
-        "Glad you have support, Caroline! Unconditional love is so important. Here's a pic of my family camping at the beach. We love it, it brings us closer!",
-        "Wow, love that painting! So cool you found such a helpful group. What's it done for you?",
-        "That's great news, Caroline! Love seeing your dedication to helping others. Any specific projects or activities you're looking forward to there?",
-        "That's awesome, Melanie! How have your family been supportive during your move?"
+        "That's awesome, Melanie! Family moments like that are so special. Glad y'all had such a great time.",
+        "That's awesome, Melanie! How have your family been supportive during your move?",
+        "Wow, Melanie, what a beautiful moment! Lucky you to have such an awesome family!",
+        "I'm getting there, Caroline. Creativity and family keep me at peace.",
+        "Thanks, Caroline! Family time matters to me. What's up with you lately?"
       ]
     },
     {
@@ -120,42 +146,18 @@
         "D11:14"
       ],
       "retrieved_top_attrs": [
-        "D6:15",
         "D16:9",
         "D14:12",
-        "D19:11",
-        "D3:1"
+        "D3:1",
+        "D6:12",
+        "D8:25"
       ],
       "retrieved_top_texts": [
-        "I'm so lucky to have such a great support system around me. Their love and encouragement has really helped me accept and grow into my true self. They've been instrumental in my transition.",
         "Melanie, those bowls are amazing! They each have such cool designs. I love that you chose pottery for your art. Painting and drawing have helped me express my feelings and explore my gender identity. Creating art was really important to me during my transition - it helped me understand and accept myself. I'm so grateful.",
         "Thanks, Caroline! I really appreciate your help and motivation. What made you decide to transition and join the transgender community?",
-        "Thanks, Melanie. Your support really means a lot. This journey has been amazing and I'm grateful I get to share it and help others with theirs. It's a real gift.",
-        "Hey Melanie! How's it going? I wanted to tell you about my school event last week. It was awesome! I talked about my transgender journey and encouraged students to get involved in the LGBTQ community. It was great to see their reactions. It made me reflect on how far I've come since I started transitioning three years ago."
-      ]
-    },
-    {
-      "sample_id": "conv-26",
-      "category": 1,
-      "category_name": "multi-hop",
-      "question": "What books has Melanie read?",
-      "evidence": [
-        "D7:8",
-        "D6:10"
-      ],
-      "retrieved_top_attrs": [
-        "D7:10",
-        "D6:8",
-        "D7:22",
-        "D7:24",
-        "D19:11"
-      ],
-      "retrieved_top_texts": [
-        "Wow, Caroline! Books have such an awesome power! Which one has been your favorite guide?",
-        "Sounds great! What kind of books you got in your library?",
-        "I've been running farther to de-stress, which has been great for my headspace.",
-        "Thanks, Caroline! This has been great for my mental health. I'm gonna keep it up.",
-        "Thanks, Melanie. Your support really means a lot. This journey has been amazing and I'm grateful I get to share it and help others with theirs. It's a real gift."
+        "Hey Melanie! How's it going? I wanted to tell you about my school event last week. It was awesome! I talked about my transgender journey and encouraged students to get involved in the LGBTQ community. It was great to see their reactions. It made me reflect on how far I've come since I started transitioning three years ago.",
+        "That's a gorgeous photo, Caroline! Wow, the love around you is awesome. How have your friends and fam been helping you out with your transition?",
+        "Realizing I can be me without fear and having the courage to transition was the best part. It's so freeing to express myself authentically and have people back me up."
       ]
     },
     {
@@ -168,18 +170,18 @@
         "D1:11"
       ],
       "retrieved_top_attrs": [
-        "D15:23",
         "D1:9",
-        "D4:12",
         "D4:11",
-        "D7:11"
+        "D7:11",
+        "D7:7",
+        "D16:13"
       ],
       "retrieved_top_texts": [
-        "Yeah totally! \"Brave\" by Sara Bareilles has a lot of significance for me. It's about being courageous and fighting for what's right. Whenever I hear this jam, I think about the paths I've taken and the progress I've made.",
         "Gonna continue my edu and check out career options, which is pretty exciting!",
-        "Sounds great! What kind of counseling and mental health services do you want to persue?",
         "Lately, I've been looking into counseling and mental health as a career. I want to help people who have gone through the same things as me.",
-        "I loved \"Becoming Nicole\" by Amy Ellis Nutt. It's a real inspiring true story about a trans girl and her family. It made me feel connected and gave me a lot of hope for my own path. Highly recommend it for sure!"
+        "I loved \"Becoming Nicole\" by Amy Ellis Nutt. It's a real inspiring true story about a trans girl and her family. It made me feel connected and gave me a lot of hope for my own path. Highly recommend it for sure!",
+        "I struggled with mental health, and support I got was really helpful. It made me realize how important it is for others to have a support system. So, I started looking into counseling and mental health career options, so I could help other people on their own journeys like I was helped.",
+        "Thanks, Melanie! I made this painting to show my path as a trans woman. The red and blue are for the binary gender system, and the mix of colors means smashing that rigid thinking. It's a reminder to love my authentic self - it's taken a while to get here but I'm finally proud of who I am."
       ]
     },
     {
@@ -263,18 +265,18 @@
         "D10:12"
       ],
       "retrieved_top_attrs": [
-        "D7:11",
-        "D6:16",
+        "D4:9",
         "D8:29",
         "D10:23",
-        "D8:28"
+        "D8:28",
+        "D4:10"
       ],
       "retrieved_top_texts": [
-        "I loved \"Becoming Nicole\" by Amy Ellis Nutt. It's a real inspiring true story about a trans girl and her family. It made me feel connected and gave me a lot of hope for my own path. Highly recommend it for sure!",
-        "Glad you have support, Caroline! Unconditional love is so important. Here's a pic of my family camping at the beach. We love it, it brings us closer!",
+        "That's awesome, Melanie! Family moments like that are so special. Glad y'all had such a great time.",
         "That's awesome, Melanie! How have your family been supportive during your move?",
         "Wow, Melanie, what a beautiful moment! Lucky you to have such an awesome family!",
-        "I'm getting there, Caroline. Creativity and family keep me at peace."
+        "I'm getting there, Caroline. Creativity and family keep me at peace.",
+        "Thanks, Caroline! Family time matters to me. What's up with you lately?"
       ]
     },
     {
@@ -290,15 +292,15 @@
         "D7:2",
         "D10:6",
         "D8:9",
-        "D16:10",
-        "D19:11"
+        "D10:5",
+        "D17:6"
       ],
       "retrieved_top_texts": [
         "Wow, Caroline, that sounds awesome! So glad you felt accepted and supported. Events like these are great for reminding us of how strong community can be!",
         "Wow, Caroline, your group sounds awesome! Supporting each other and making good things happen - that's so inspiring! Have you been part of any events or campaigns lately?",
         "That photo is stunning! So glad you bonded over our love of nature. Last Friday I went to a council meeting for adoption. It was inspiring and emotional - so many people wanted to create loving homes for children in need. It made me even more determined to adopt.",
-        "Thanks, Caroline! It has really helped me out. I love how it's both a creative outlet and a form of therapy. Have you ever thought about trying it or another art form?",
-        "Thanks, Melanie. Your support really means a lot. This journey has been amazing and I'm grateful I get to share it and help others with theirs. It's a real gift."
+        "Thanks, Melanie! It's awesome to have our own platform to be ourselves and support others' rights. Our group, 'Connected LGBTQ Activists', is made of all kinds of people investing in positive changes. We have regular meetings, plan events and campaigns, to get together and support each other.",
+        "Thanks, Caroline! Appreciate your help. Got any tips for getting started on it?"
       ]
     },
     {
@@ -377,49 +379,24 @@
       "sample_id": "conv-26",
       "category": 1,
       "category_name": "multi-hop",
-      "question": "What kind of art does Caroline make?",
-      "evidence": [
-        "D11:12",
-        "D11:8",
-        "D9:14"
-      ],
-      "retrieved_top_attrs": [
-        "D17:21",
-        "D16:7",
-        "D3:18",
-        "D2:16",
-        "D16:5"
-      ],
-      "retrieved_top_texts": [
-        "The room was electric with energy and support! The posters were amazing, so much pride and strength! It inspired me to make some art.",
-        "Since I was 17 or so. I find it soempowering and cathartic. It's amazing how art can show things that are hard to put into words. How long have you been into art?",
-        "Thanks, Caroline! Appreciate your kind words. Looking forward to more happy years. Our family and moments make it all worth it.",
-        "Thanks, Melanie! Your kind words really mean a lot. I'll do my best to make sure these kids have a safe and loving home.",
-        "I'm inspired seeing my work make a difference for the LGBTQ+ community. Knowing I'm helping create a more loving world is amazing. I'm really thankful for my friends, family and mentors' support. It inspires me to keep making art, too."
-      ]
-    },
-    {
-      "sample_id": "conv-26",
-      "category": 1,
-      "category_name": "multi-hop",
       "question": "What musical artists/bands has Melanie seen?",
       "evidence": [
         "D15:16",
         "D11:3"
       ],
       "retrieved_top_attrs": [
-        "D7:22",
-        "D7:10",
-        "D7:24",
-        "D19:11",
-        "D6:13"
+        "D14:35",
+        "D7:27",
+        "D10:1",
+        "D15:25",
+        "D4:17"
       ],
       "retrieved_top_texts": [
-        "I've been running farther to de-stress, which has been great for my headspace.",
-        "Wow, Caroline! Books have such an awesome power! Which one has been your favorite guide?",
-        "Thanks, Caroline! This has been great for my mental health. I'm gonna keep it up.",
-        "Thanks, Melanie. Your support really means a lot. This journey has been amazing and I'm grateful I get to share it and help others with theirs. It's a real gift.",
-        "Thanks, Melanie! This support network has been amazing. They've been there for me every step of the way giving me love, guidance, and acceptance. I couldn't have done it without them."
+        "Yeah Mel, stoked! Gonna be a great night featuring LGBTQ artists and their awesome talents. We want it to spread understanding and acceptance - let's make it happen!",
+        "Glad it helped ya, Melanie!",
+        "Hey Melanie! Just wanted to say hi!",
+        "Thanks, Melanie! Appreciate it. You play any instruments?",
+        "Thanks, Melanie! Your kind words mean a lot."
       ]
     },
     {
@@ -432,18 +409,18 @@
         "D8:6"
       ],
       "retrieved_top_attrs": [
+        "D3:16",
         "D9:16",
         "D17:14",
-        "D1:14",
         "D3:17",
-        "D16:10"
+        "D9:7"
       ],
       "retrieved_top_texts": [
+        "5 years already! Time flies- feels like just yesterday I put this dress on! Thanks, Caroline!",
         "Thanks, Melanie! I painted this after I visited a LGBTQ center. I wanted to capture everyone's unity and strength.",
         "Thanks, Caroline! I painted it because it was calming. I've done an abstract painting too, take a look! I love how art lets us get our emotions out.",
-        "Yeah, I painted that lake sunrise last year! It's special to me.",
         "Congrats, Melanie! You both looked so great on your wedding day! Wishing you many happy years together!",
-        "Thanks, Caroline! It has really helped me out. I love how it's both a creative outlet and a form of therapy. Have you ever thought about trying it or another art form?"
+        "Caroline, awesome news that you two are getting along! What was it like for you both? Care to fill me in?"
       ]
     },
     {
@@ -474,31 +451,6 @@
       "sample_id": "conv-26",
       "category": 1,
       "category_name": "multi-hop",
-      "question": "What types of pottery have Melanie and her kids made?",
-      "evidence": [
-        "D12:14",
-        "D8:4",
-        "D5:6"
-      ],
-      "retrieved_top_attrs": [
-        "D8:2",
-        "D14:4",
-        "D5:5",
-        "D16:11",
-        "D16:8"
-      ],
-      "retrieved_top_texts": [
-        "Hey Caroline, it's been super busy here. So much since we talked! Last Fri I finally took my kids to a pottery workshop. We all made our own pots, it was fun and therapeutic!",
-        "Yeah, I made it in pottery class yesterday. I love it! Pottery's so relaxing and creative. Have you tried it yet?",
-        "Wow, Melanie! I'm getting creative too, just learning the piano. What made you try pottery?",
-        "I haven't done pottery yet, but I'm game for trying new art. I might try it sometime! Check out this piece I made!",
-        "Seven years now, and I've finally found my real muses: painting and pottery. It's so calming and satisfying. Check out my pottery creation in the pic!"
-      ]
-    },
-    {
-      "sample_id": "conv-26",
-      "category": 1,
-      "category_name": "multi-hop",
       "question": "Where has Melanie camped?",
       "evidence": [
         "D6:16",
@@ -506,18 +458,18 @@
         "D8:32"
       ],
       "retrieved_top_attrs": [
-        "D7:22",
-        "D7:10",
-        "D7:24",
-        "D19:11",
-        "D6:13"
+        "D7:27",
+        "D10:1",
+        "D15:25",
+        "D4:17",
+        "D14:3"
       ],
       "retrieved_top_texts": [
-        "I've been running farther to de-stress, which has been great for my headspace.",
-        "Wow, Caroline! Books have such an awesome power! Which one has been your favorite guide?",
-        "Thanks, Caroline! This has been great for my mental health. I'm gonna keep it up.",
-        "Thanks, Melanie. Your support really means a lot. This journey has been amazing and I'm grateful I get to share it and help others with theirs. It's a real gift.",
-        "Thanks, Melanie! This support network has been amazing. They've been there for me every step of the way giving me love, guidance, and acceptance. I couldn't have done it without them."
+        "Glad it helped ya, Melanie!",
+        "Hey Melanie! Just wanted to say hi!",
+        "Thanks, Melanie! Appreciate it. You play any instruments?",
+        "Thanks, Melanie! Your kind words mean a lot.",
+        "Thanks, Melanie! That plate is awesome! Did you make it?"
       ]
     },
     {
@@ -530,18 +482,18 @@
         "D3:11"
       ],
       "retrieved_top_attrs": [
-        "D5:2",
         "D3:13",
-        "D7:10",
-        "D6:1",
-        "D7:24"
+        "D5:2",
+        "D11:10",
+        "D4:16",
+        "D11:2"
       ],
       "retrieved_top_texts": [
-        "Wow, Caroline, sounds like the parade was an awesome experience! It's great to see the love and support for the LGBTQ+ community. Congrats! Has this experience influenced your goals at all?",
         "Yeah, I'm really lucky to have them. They've been there through everything, I've known these friends for 4 years, since I moved from my home country. Their love and help have been so important especially after that tough breakup. I'm super thankful. Who supports you, Mel?",
-        "Wow, Caroline! Books have such an awesome power! Which one has been your favorite guide?",
-        "Hey Mel! Long time no talk. Lots has been going on since then!",
-        "Thanks, Caroline! This has been great for my mental health. I'm gonna keep it up."
+        "Wow, Caroline, sounds like the parade was an awesome experience! It's great to see the love and support for the LGBTQ+ community. Congrats! Has this experience influenced your goals at all?",
+        "My art is about expressing my trans experience. It's my way of showing my story and helping people understand the trans community.",
+        "Wow, Caroline! You've gained so much from your own experience. Your passion and hard work to help others is awesome. Keep it up, you're making a big impact!",
+        "Wow, sounds wonderful! Your love for your kids is so awesome. What concert was it? The advocacy event was a cool experience - so much love and support, amazing!"
       ]
     },
     {
@@ -604,18 +556,18 @@
         "D15:13"
       ],
       "retrieved_top_attrs": [
-        "D15:3",
-        "D15:4",
         "D9:2",
-        "D11:2",
-        "D3:1"
+        "D3:1",
+        "D18:1",
+        "D17:1",
+        "D15:8"
       ],
       "retrieved_top_texts": [
-        "Thanks, Gina. Still working on opening a dance studio.",
-        "When are you opening the studio?",
         "Hey Jon! Wow, way to take your passion and make it into a biz! The dance studio looks awesome.",
-        "Hi! You're so inspiring taking it on and opening your own studio!",
-        "Hey Gina, hope you're doing ok! Still following my passion for dance. It's been bumpy, but I'm determined to make it work. I'm still searching for a place to open my dance studio."
+        "Hey Gina, hope you're doing ok! Still following my passion for dance. It's been bumpy, but I'm determined to make it work. I'm still searching for a place to open my dance studio.",
+        "Hey Jon! Long time no talk! Last week, I built a new website for customers to make orders. It's been a wild ride but I'm loving it. What's up with you? How's the dance studio?",
+        "Hey Jon! Long time no chat! How's the dance studio? Last week was wild, I got noticed by fashion editors and it's been amazing but kinda scary. Everything's exciting but it's a lot of pressure to keep going up!",
+        "Wow, Jon, you must be so excited! You've come so far since we last talked, and tomorrow's gonna be a blast! All those long nights were worth it - so take some time to savor it. Capture the joy and thrill that dance brings - it's magical!"
       ]
     },
     {
@@ -628,18 +580,18 @@
         "D15:1"
       ],
       "retrieved_top_attrs": [
-        "D7:2",
-        "D12:14",
-        "D19:1",
-        "D4:9",
-        "D8:3"
+        "D17:5",
+        "D17:20",
+        "D15:17",
+        "D13:19",
+        "D19:12"
       ],
       "retrieved_top_texts": [
-        "Hey Jon, my online clothing store has been a roller coaster but rewarding. Starting a business takes courage - you hang in there too!",
-        "Thanks! Searching for investors has been tough, but I'm staying hopeful. It's all a process and I'm learning a ton.",
-        "Hey Gina! We haven't talked in a few days. Been rehearsing hard and working on business plans. It's been stressful, but dancing has kept me going.",
-        "Searching for a dance studio location has been tricky, but I'm determined to find the right spot - when I do, I'm sure the rest will follow!",
-        "It was a tough call, but I thought it'd help my biz grow. Handling changes has been hard, but I'm staying positive and looking ahead. Anything new for you?"
+        "Go get 'em, Jon!",
+        "Bye!",
+        "Agreed!",
+        "Thanks!",
+        "Remember Jon, Just do it!"
       ]
     },
     {
@@ -653,16 +605,16 @@
       ],
       "retrieved_top_attrs": [
         "D6:16",
-        "D2:1",
         "D6:15",
         "D5:21",
+        "D2:1",
         "D5:20"
       ],
       "retrieved_top_texts": [
         "Yep! We're both on different paths, but it's nice to have someone to root for us. We can do it!",
-        "Hey Jon! Long time no see! Things have been hectic lately. I just launched an ad campaign for my clothing store in hopes of growing the business. Starting my own store and taking risks is both scary and rewarding. I'm excited to see where it takes me!",
         "Yeah, totally! It's great we both face the same challenges, it motivates us and it's like having a partner to dance with!",
         "Wow, Jon! You're amazing at juggling both your passions. Finding that happy medium is key - keep going and don't stop dreaming, buddy!",
+        "Hey Jon! Long time no see! Things have been hectic lately. I just launched an ad campaign for my clothing store in hopes of growing the business. Starting my own store and taking risks is both scary and rewarding. I'm excited to see where it takes me!",
         "Thanks! Juggling both my passions can be tricky, but so rewarding. Dancing and running my biz need hard work, plus they give me energy for each other. My dance moves get me pumped to tackle my business goals, and successes there boost my drive to keep dreaming on the dance floor. It's a balancing act, but fun."
       ]
     },
@@ -677,18 +629,18 @@
         "D8:4"
       ],
       "retrieved_top_attrs": [
-        "D7:2",
-        "D19:1",
         "D16:7",
         "D1:3",
-        "D18:4"
+        "D18:4",
+        "D6:1",
+        "D10:7"
       ],
       "retrieved_top_texts": [
-        "Hey Jon, my online clothing store has been a roller coaster but rewarding. Starting a business takes courage - you hang in there too!",
-        "Hey Gina! We haven't talked in a few days. Been rehearsing hard and working on business plans. It's been stressful, but dancing has kept me going.",
         "Way to go, Jon! Attending those networking events takes guts and drive. Keep it up!",
         "Sorry about your job Jon, but starting your own business sounds awesome! Unfortunately, I also lost my job at Door Dash this month. What business are you thinking of?",
-        "Thanks for the support. Running a business isn't easy, but I'm determined to make it work. How have you tackled challenges in your business? Got any advice?"
+        "Thanks for the support. Running a business isn't easy, but I'm determined to make it work. How have you tackled challenges in your business? Got any advice?",
+        "Hi Gina! Been hectic for me lately. Started hitting the gym last week to stay on track with the venture. Gotta figure out how to balance it all, but it's going well. How about you?",
+        "I've been feeling kinda low on confidence lately. It's hard to run a business when you don't have faith in yourself. Any tips on how you stay confident in your business?"
       ]
     },
     {
@@ -705,14 +657,14 @@
         "D7:2",
         "D10:2",
         "D14:8",
-        "D3:2"
+        "D18:2"
       ],
       "retrieved_top_texts": [
         "Hey Jon! Long time no see! Things have been hectic lately. I just launched an ad campaign for my clothing store in hopes of growing the business. Starting my own store and taking risks is both scary and rewarding. I'm excited to see where it takes me!",
         "Hey Jon, my online clothing store has been a roller coaster but rewarding. Starting a business takes courage - you hang in there too!",
         "Hey Jon, congrats on the fair! It's awesome to see your hard work paying off. Keep on pushing, pal, you're headed for greatness. Oh, and BTW, I started my own online clothing store not so long ago - pretty cool, huh?",
         "Ha, yeah, Jon. I've been one 'cause I lost my job. I opened an online clothing store and it's been great! Being my own boss and doing something I love is awesome.",
-        "Hi Jon! So happy you're pushing forward with dancing! Inspiring 💪 I emailed some wholesalers and one replied and said yes today! I'm over the moon because now I can expand my clothing store and get closer to my customers. Check it out - here's a pic!"
+        "Hey Gina, congrats on the clothing store! The dance studio is on tenuous grounds right now, but I'm staying positive. I got a temp job to help cover expenses while I look for investors. It's tough, but I'm sure it'll be worth it."
       ]
     },
     {
@@ -725,18 +677,18 @@
         "D8:15"
       ],
       "retrieved_top_attrs": [
-        "D12:3",
-        "D2:2",
-        "D28:3",
-        "D26:4",
-        "D8:5"
+        "D31:23",
+        "D22:21",
+        "D1:16",
+        "D9:16",
+        "D16:16"
       ],
       "retrieved_top_texts": [
-        "Thanks, Maria! It's been great to talk to someone who understands the importance of these issues. Digging deeper into the political system has been eye-opening, so I'm researching policies and writing about my thoughts and ideas. Hoping to raise awareness and start conversations to create positive change.",
-        "Hi Maria! It's been an interesting ride so far. I've been networking with some people to get their input.",
-        "Thanks for your care, Maria. It's been tough but I'm trying to stay up. I've been looking into some opportunities in the tech industry for a while now. Maybe this is the change I need, you gave me the push!",
-        "Thanks, Maria! It's been tough, but really rewarding. The training was intense and taxing, but it changed my view on helping others. Last Sunday we had our first call-out, and it was intense. We responded to a situation and our team worked together to help those in need. Seeing their relief was awesome.",
-        "Sounds like parenting has been a wonderful experience for you - what has it been like?"
+        "Thanks, Maria! You too! Stay safe!",
+        "Take care, Maria. Catch you soon!",
+        "Got it! Thanks, Maria. I definitely will.",
+        "Thanks, Maria! Will do. Working together would be great!",
+        "Thanks, John. I definitely will!"
       ]
     },
     {
@@ -800,17 +752,17 @@
       ],
       "retrieved_top_attrs": [
         "D29:9",
-        "D29:3",
         "D29:13",
-        "D25:17",
-        "D30:19"
+        "D29:3",
+        "D30:19",
+        "D10:11"
       ],
       "retrieved_top_texts": [
         "Wow, John! You really overcame those challenges. Have you done events for any other causes?",
-        "John, that sounds inspiring! Community events like that are always amazing. This pic is heartwarming, that little girl has such a cute smile. What was the event all about?",
         "Agree, John! It's great to see community power in action. Let's keep spreading awareness and supporting causes like this.",
-        "I've done weight training so far too. It was challenging but peaceful, kinda like yoga.",
-        "Sounds like a great plan, John! That could definitely help you make a difference. You can meet like-minded people and contribute to causes that you care about. Why not do some research and explore the organizations you'd be interested in?"
+        "John, that sounds inspiring! Community events like that are always amazing. This pic is heartwarming, that little girl has such a cute smile. What was the event all about?",
+        "Sounds like a great plan, John! That could definitely help you make a difference. You can meet like-minded people and contribute to causes that you care about. Why not do some research and explore the organizations you'd be interested in?",
+        "Wow, Maria! It sounds awesome. I bet you felt so pumped running with everyone for the same cause. Events like these really energize us and remind us we can make a difference. Any pictures from the event?"
       ]
     },
     {
@@ -824,17 +776,43 @@
       ],
       "retrieved_top_attrs": [
         "D21:4",
-        "D23:2",
         "D21:3",
+        "D23:2",
         "D21:1",
         "D20:1"
       ],
       "retrieved_top_texts": [
         "That's so sad. Can I do anything to help? What happened?",
-        "Sorry to hear about what happened in your area, John. That must have been tough for you and everyone there. Is there anything I can do to help?",
         "Hey John! They were great, their smiles warmed my heart. But something not so great happened yesterday...",
+        "Sorry to hear about what happened in your area, John. That must have been tough for you and everyone there. Is there anything I can do to help?",
         "Hey John, long time no see! Sorry I didn't get back to you sooner... So much has happened! Check out these kids I met at the shelter!",
         "Hey John, long time no talk! A lot has happened since then. I've been struggling, but I'm focusing on the positive and relying on my friends and fam for support."
+      ]
+    },
+    {
+      "sample_id": "conv-41",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What exercises has John done?",
+      "evidence": [
+        "D25:17",
+        "D25:13",
+        "D10:1",
+        "D1:4"
+      ],
+      "retrieved_top_attrs": [
+        "D16:16",
+        "D22:20",
+        "D13:34",
+        "D31:16",
+        "D21:23"
+      ],
+      "retrieved_top_texts": [
+        "Thanks, John. I definitely will!",
+        "Hey John, stay safe. Chat soon!",
+        "Yeah, John! That's so important.",
+        "Absolutely, John. They're always there for us.",
+        "Wow, John! What inspired you to join it?"
       ]
     },
     {
@@ -849,16 +827,16 @@
       "retrieved_top_attrs": [
         "D25:10",
         "D24:11",
-        "D29:9",
-        "D25:17",
-        "D25:1"
+        "D16:16",
+        "D22:20",
+        "D13:34"
       ],
       "retrieved_top_texts": [
         "Thanks, John! Is it a martial arts place or a yoga studio? It looks awesome!",
         "There were arts and crafts at a community event last month. There were fun activities and games for families and everyone was having a blast. So I figured I'd try them out with my family and friends.",
-        "Wow, John! You really overcame those challenges. Have you done events for any other causes?",
-        "I've done weight training so far too. It was challenging but peaceful, kinda like yoga.",
-        "Hi Maria! It's so good to talk again. A lot has changed since last time. I'm really enjoying my new job. My team has been super encouraging and inspiring."
+        "Thanks, John. I definitely will!",
+        "Hey John, stay safe. Chat soon!",
+        "Yeah, John! That's so important."
       ]
     },
     {
@@ -872,17 +850,17 @@
       ],
       "retrieved_top_attrs": [
         "D12:9",
-        "D29:9",
-        "D6:5",
-        "D25:17",
-        "D8:4"
+        "D31:19",
+        "D16:16",
+        "D22:20",
+        "D13:34"
       ],
       "retrieved_top_texts": [
         "My colleagues and I went to a convention together last month. We're all passionate about using tech for good in our community. It was great to connect with like-minded folks and swap ideas. It's inspiring to see people united in their goal.",
-        "Wow, John! You really overcame those challenges. Have you done events for any other causes?",
-        "Yeah, at the event, I had a conversation with someone named David. Hearing his story of hardship and how he ended up in difficult circumstances was so humbling. It just showed me that everyone has their own story and deserves understanding.",
-        "I've done weight training so far too. It was challenging but peaceful, kinda like yoga.",
-        "Thanks, Maria! They're doing great. Our one-year-old is so cute, his name is Kyle!"
+        "Thanks, Maria! We love being outdoors - going for hikes, hanging out at the park, having picnics - plus playing board games and having movie nights at home. ",
+        "Thanks, John. I definitely will!",
+        "Hey John, stay safe. Chat soon!",
+        "Yeah, John! That's so important."
       ]
     },
     {
@@ -895,18 +873,18 @@
         "D18:3"
       ],
       "retrieved_top_attrs": [
-        "D8:5",
-        "D13:1",
-        "D25:1",
-        "D18:8",
-        "D15:5"
+        "D31:23",
+        "D22:21",
+        "D1:16",
+        "D9:16",
+        "D16:16"
       ],
       "retrieved_top_texts": [
-        "Sounds like parenting has been a wonderful experience for you - what has it been like?",
-        "Hey Maria! Long time no see! Tons has gone down since then!",
-        "Hi Maria! It's so good to talk again. A lot has changed since last time. I'm really enjoying my new job. My team has been super encouraging and inspiring.",
-        "Wow, Maria, that sounds awesome! It seems like nature has a way of calming us down, huh?",
-        "Thanks, Maria. It sure has taken a lot of work, but I think it's worth it. Just want to let them know their hard work is appreciated."
+        "Thanks, Maria! You too! Stay safe!",
+        "Take care, Maria. Catch you soon!",
+        "Got it! Thanks, Maria. I definitely will.",
+        "Thanks, Maria! Will do. Working together would be great!",
+        "Thanks, John. I definitely will!"
       ]
     },
     {
@@ -919,18 +897,18 @@
         "D2:1"
       ],
       "retrieved_top_attrs": [
-        "D29:9",
-        "D25:16",
-        "D8:21",
-        "D4:1",
-        "D27:2"
+        "D27:2",
+        "D7:3",
+        "D16:6",
+        "D31:1",
+        "D8:21"
       ],
       "retrieved_top_texts": [
-        "Wow, John! You really overcame those challenges. Have you done events for any other causes?",
-        "Looks fun! What other classes have you done?",
-        "Glad you have a good support system, John. It's been great having people behind me while volunteering at the homeless shelter. Positive influences make a big impact.\n",
-        "Hey John, great news - I'm now friends with one of my fellow volunteers! We both love helping others. How have you been since we last chatted?",
-        "Wow, John! Way to go helping veterans! I'm doing my part too, volunteering at a homeless shelter. It's so rewarding."
+        "Wow, John! Way to go helping veterans! I'm doing my part too, volunteering at a homeless shelter. It's so rewarding.",
+        "Congrats, John! What made you decide to run again? As for me, I've been volunteering at a homeless shelter and it's really rewarding.",
+        "Thanks, John! Your help is really appreciated. If you know anyone who might be interested in volunteering for the event, let me know. We can do this!",
+        "Hi Maria, since we last chatted, I'm volunteering as a mentor for a local school. It's really rewarding to see how much I can help these students.",
+        "Glad you have a good support system, John. It's been great having people behind me while volunteering at the homeless shelter. Positive influences make a big impact.\n"
       ]
     },
     {
@@ -946,16 +924,16 @@
       "retrieved_top_attrs": [
         "D10:4",
         "D25:10",
-        "D8:5",
         "D18:16",
-        "D13:1"
+        "D25:18",
+        "D18:19"
       ],
       "retrieved_top_texts": [
         "Wow, that looks great! What kind of yoga is it?",
         "Thanks, John! Is it a martial arts place or a yoga studio? It looks awesome!",
-        "Sounds like parenting has been a wonderful experience for you - what has it been like?",
         "Cool, Maria! Glad you found something that gives you some peace. Do you have a favorite yoga pose?",
-        "Hey Maria! Long time no see! Tons has gone down since then!"
+        "Wow, John! That's great. Yoga is a great way to relax and concentrate, and joining a new class might be a good option.",
+        "Thanks, John! It can be tough, but aerial yoga is totally worth it. I love the freedom and connection it brings. Appreciate your support!"
       ]
     },
     {
@@ -968,18 +946,18 @@
         "D7:1"
       ],
       "retrieved_top_attrs": [
-        "D15:5",
-        "D12:3",
-        "D25:16",
         "D25:12",
-        "D25:14"
+        "D1:3",
+        "D25:16",
+        "D25:14",
+        "D19:7"
       ],
       "retrieved_top_texts": [
-        "Thanks, Maria. It sure has taken a lot of work, but I think it's worth it. Just want to let them know their hard work is appreciated.",
-        "Thanks, Maria! It's been great to talk to someone who understands the importance of these issues. Digging deeper into the political system has been eye-opening, so I'm researching policies and writing about my thoughts and ideas. Hoping to raise awareness and start conversations to create positive change.",
-        "Looks fun! What other classes have you done?",
         "Cool, John! That definitely makes the workout experience more enjoyable. Do they offer a variety of classes?",
-        "Cool, John! Trying new classes sounds like a fun way to switch up your exercise routine - I should give it a go!"
+        "Been busy volunteering at the homeless shelter and keeping fit. Just started doing aerial yoga, it's great. Have you tried any other cool workout classes?",
+        "Looks fun! What other classes have you done?",
+        "Cool, John! Trying new classes sounds like a fun way to switch up your exercise routine - I should give it a go!",
+        "Wow John! Congrats on the promotion! Must have taken a lot of work. How did you feel when you found out?"
       ]
     },
     {
@@ -994,18 +972,18 @@
         "D14:10"
       ],
       "retrieved_top_attrs": [
-        "D20:1",
-        "D32:11",
-        "D27:4",
-        "D11:10",
-        "D15:13"
+        "D15:13",
+        "D29:18",
+        "D16:15",
+        "D26:11",
+        "D27:5"
       ],
       "retrieved_top_texts": [
-        "Hey John, long time no talk! A lot has happened since then. I've been struggling, but I'm focusing on the positive and relying on my friends and fam for support.",
-        "Thanks, Maria! Your support means a lot to me. It's amazing how finding my passion has made such a big impact. I'll keep working hard on it. The donations even helped get a brand new fire truck!",
-        "I started volunteering here about a year ago after witnessing a family struggling on the streets. It made me want to help, so I reached out to the shelter and asked if they needed any volunteers. They said yes, and it has been a really fulfilling experience for me since then.",
-        "I recently gave a few talks at the homeless shelter I volunteer at. It was really fulfilling and I received lots of compliments from other volunteers. It was a great reminder about why connecting with and helping others is so important. And, I bought a cross necklace to feel closer to my faith- which has made me happy.",
-        "Thanks, Maria! We had a great time throwing a small party and inviting some veterans to share their stories. It was awesome seeing them make connections and find camaraderie. All the smiles and new friendships made it really heartwarming."
+        "Thanks, Maria! We had a great time throwing a small party and inviting some veterans to share their stories. It was awesome seeing them make connections and find camaraderie. All the smiles and new friendships made it really heartwarming.",
+        "Yeah Maria! Friends like you make a big difference. Talk to you later!",
+        "Glad the photo made you feel that way, Maria. Cherish those little moments!",
+        "Glad you've found that same strong bond. Having friends you can rely on makes a huge difference.",
+        "Wow, Maria! You really made an impact – it's awesome! I seriously admire what you do."
       ]
     },
     {
@@ -1018,18 +996,18 @@
         "D10:1"
       ],
       "retrieved_top_attrs": [
+        "D27:2",
         "D25:11",
         "D25:18",
         "D25:10",
-        "D25:17",
-        "D25:13"
+        "D25:17"
       ],
       "retrieved_top_texts": [
+        "Wow, John! Way to go helping veterans! I'm doing my part too, volunteering at a homeless shelter. It's so rewarding.",
         "Yup, it's a yoga studio I go to often. The vibe is really chill and the instructors are awesome.",
         "Wow, John! That's great. Yoga is a great way to relax and concentrate, and joining a new class might be a good option.",
         "Thanks, John! Is it a martial arts place or a yoga studio? It looks awesome!",
-        "I've done weight training so far too. It was challenging but peaceful, kinda like yoga.",
-        "Yeah, they offer a a bunch, like yoga, kickboxing, and circuit training. It keeps things interesting!"
+        "I've done weight training so far too. It was challenging but peaceful, kinda like yoga."
       ]
     },
     {
@@ -1042,18 +1020,18 @@
         "D18:5"
       ],
       "retrieved_top_attrs": [
-        "D20:8",
-        "D6:8",
-        "D27:10",
-        "D17:8",
-        "D17:16"
+        "D28:33",
+        "D25:29",
+        "D20:19",
+        "D6:13",
+        "D21:20"
       ],
       "retrieved_top_texts": [
-        "Trying out different flavors like chocolate, raspberry, and coconut has been a blast!",
-        "Best of luck in the tournament! It sounds like it would be difficult to go through so many days of intense gaming! This is my go-to place for writing inspiration. It helps me stay sharp and motivated.",
-        "Creating stories and watching them come alive gives me happiness and fulfillment. Writing has been such a blessing for me.",
-        "Woodhaven has had an interesting past with lots of cool people. Seeing how much it changed sparked ideas for my next script.",
-        "That page specifically has some dialogues exploring loss, redemption, and forgiveness. It's a deep and emotional story that I'm really excited about!"
+        "Bye Joanna!",
+        "See you later Joanna!",
+        "Bye Joanna! Good luck!",
+        "Bye Joanna! Take care!",
+        "Thanks Joanna! I will. Bye!"
       ]
     },
     {
@@ -1069,18 +1047,18 @@
         "D12:14"
       ],
       "retrieved_top_attrs": [
-        "D20:8",
-        "D6:8",
-        "D27:10",
-        "D17:8",
-        "D17:16"
+        "D28:33",
+        "D25:29",
+        "D20:19",
+        "D6:13",
+        "D21:20"
       ],
       "retrieved_top_texts": [
-        "Trying out different flavors like chocolate, raspberry, and coconut has been a blast!",
-        "Best of luck in the tournament! It sounds like it would be difficult to go through so many days of intense gaming! This is my go-to place for writing inspiration. It helps me stay sharp and motivated.",
-        "Creating stories and watching them come alive gives me happiness and fulfillment. Writing has been such a blessing for me.",
-        "Woodhaven has had an interesting past with lots of cool people. Seeing how much it changed sparked ideas for my next script.",
-        "That page specifically has some dialogues exploring loss, redemption, and forgiveness. It's a deep and emotional story that I'm really excited about!"
+        "Bye Joanna!",
+        "See you later Joanna!",
+        "Bye Joanna! Good luck!",
+        "Bye Joanna! Take care!",
+        "Thanks Joanna! I will. Bye!"
       ]
     },
     {
@@ -1093,18 +1071,18 @@
         "D24:12"
       ],
       "retrieved_top_attrs": [
+        "D8:6",
         "D27:12",
-        "D20:8",
-        "D27:11",
-        "D27:10",
-        "D27:8"
+        "D1:20",
+        "D12:10",
+        "D27:32"
       ],
       "retrieved_top_texts": [
+        "Maybe I'll have to convince you to go with me one of these times!",
         "Yep! I actually just submitted a few more last week! Hoping to hear back from them soon, though I assume a few will be rejected.",
-        "Trying out different flavors like chocolate, raspberry, and coconut has been a blast!",
-        "Well with dedication like yours, its no wonder you do so well in it as well! Are you planning on submitting anymore scripts anytime soon?",
-        "Creating stories and watching them come alive gives me happiness and fulfillment. Writing has been such a blessing for me.",
-        "Thanks Nate! Writing has always been a passion of mine. I got the idea for this script from a dream. How have your turtles been? I haven't seen pictures of them in a while!"
+        "A few times. It's one of my favorites! I really like the idea and the acting.",
+        "Writing and creative projects are what get me through tough times. I'm also grateful for my supportive friends.",
+        "They sure can! They take us back to simpler times but it's nice to create new memories as we grow up."
       ]
     },
     {
@@ -1117,18 +1095,18 @@
         "D28:23"
       ],
       "retrieved_top_attrs": [
-        "D24:2",
-        "D2:14",
-        "D27:8",
-        "D29:6",
-        "D28:25"
+        "D26:10",
+        "D25:15",
+        "D25:27",
+        "D20:2",
+        "D28:31"
       ],
       "retrieved_top_texts": [
-        "Hey Nate! I have been revising and perfecting the recipe I made for my family and it turned out really tasty. What's been happening with you?",
-        "Thanks! The turtles might be small, but both sure have big personalities. I really reccomend having something like these little guys for times of stress.",
-        "Thanks Nate! Writing has always been a passion of mine. I got the idea for this script from a dream. How have your turtles been? I haven't seen pictures of them in a while!",
-        "Wow Joanna, that must have been so exciting! It's incredible when you get those moments of joy. Anyway, I took my turtles to the beach in Tampa yesterday! They always bring me peace in the craziness of life.",
-        "Turtles really bring me joy and peace. They have such an effect on us - best buddies ever! I saw another at a pet store and just hade to get him. The tank is big enough now for three, so I figured why not!"
+        "What can I say, I love turtles. So, what's been happening with you?",
+        "I was bored today, so I just took my turtles out for a walk.",
+        "I've always liked turtles since I was a boy, so I know all about them!",
+        "Hey Nate! Cute turtles! Bummer about the setback. Any positive vibes comin' your way? I just revised on of my old recipes and made this!",
+        "Sounds good. Well I'll make sure I give the turtles a bath before you get here so they're ready to play."
       ]
     },
     {
@@ -1219,15 +1197,15 @@
         "D26:14",
         "D21:16",
         "D14:9",
-        "D14:12",
-        "D2:18"
+        "D2:18",
+        "D13:2"
       ],
       "retrieved_top_texts": [
         "Thanks! It feels good to use my skills to make a difference.",
         "Yum, Joanna! Gotta try that one. Any others you want to share?",
         "Way to go, Nate! Congratulations on your victory in the tournament! It must feel great to be recognized for your gaming skills.",
-        "Thanks! I has been a while since my first tournament hasn't it? I appreciate your support!",
-        "Oh, kind of. Some people are more competitive then others, so I tend to just stick around the more chill people here."
+        "Oh, kind of. Some people are more competitive then others, so I tend to just stick around the more chill people here.",
+        "Hey Nate! Great to hear from you. Sounds like a nice encounter on your walk. Connecting with others who have pets can be uplifting and rewarding."
       ]
     },
     {
@@ -1240,18 +1218,18 @@
         "D23:7"
       ],
       "retrieved_top_attrs": [
+        "D22:6",
         "D27:25",
         "D23:5",
         "D15:10",
-        "D15:11",
-        "D15:14"
+        "D15:11"
       ],
       "retrieved_top_texts": [
+        "Yes! Finally, I don't have to stress about it, so I can just enjoy my movies and games.",
         "Yes it is! I'm a big fan of Nintendo games, and I've actually been wanting to play this one for a while because my friends have played it and reccomended it!",
         "I also met some people who also played this boardgame I love, so I joined in. We had a lot in common and hit it off. It's great when shared hobbies can bond people!",
         "That's a great pic of your family! What made you hang it on your cork board?",
-        "Thanks, Nate! Having that picture on my cork board reminds me of the love and encouragement from them every day.",
-        "I really should start a cork board of my own shouldn't I. That seems like a really valuable thing!"
+        "Thanks, Nate! Having that picture on my cork board reminds me of the love and encouragement from them every day."
       ]
     },
     {
@@ -1267,16 +1245,16 @@
       "retrieved_top_attrs": [
         "D9:13",
         "D19:13",
-        "D1:15",
-        "D4:19",
-        "D22:7"
+        "D22:7",
+        "D17:18",
+        "D17:4"
       ],
       "retrieved_top_texts": [
         "Wow, that's great to hear! What books do you enjoy? I'm always up for some new book recommendations.",
         "Yeah, balance is key! It's so cool how taking care of ourselves helps us be more creative and happier. I'm always looking for something new to read. Got any book recommendations? I've got a lot of books to choose from.",
-        "Wow, movies can be so powerful! Do you have any recommendations for me?",
-        "Crossing my fingers for you! Hope your screenplay finds a fan and is given its due. Good luck!",
-        "Taking breaks and reducing stress is pretty nice! Have you watched any good movies recently? I could use some recommendations!"
+        "Taking breaks and reducing stress is pretty nice! Have you watched any good movies recently? I could use some recommendations!",
+        "Thanks, Nate! I'm so glad you're excited. I've never really tried publishing a book, but this might be the first!",
+        "Thanks Nate! Appreciate your kind words. I went to Woodhaven, a small town in the Midwest. Got to see some lovely scenery and historic buildings. Checked out the library there, it had a cool old book collection!"
       ]
     },
     {
@@ -1319,16 +1297,16 @@
       "retrieved_top_attrs": [
         "D2:24",
         "D27:9",
-        "D22:12",
         "D24:8",
-        "D29:2"
+        "D29:2",
+        "D12:2"
       ],
       "retrieved_top_texts": [
         "Awesome! There are lots of things that can bring you joy without pets. What else brings you joy?",
         "Great actually! These little guys sure bring joy to my life! Watching them is so calming and fascinating. I've really grown fond of them. So, what about you, Joanna? What brings you happiness?",
-        "I'm always here for you, Joanna! You've worked so hard and accomplished a lot – I'm proud. Keep on going!",
         "Tilly helps me stay focused and brings me so much joy. It's amazing how even stuffed animals can do that!",
-        "Congrats, Joanna! Not surprised at all that your hard work paid off. Must feel awesome to see your script come alive in a movie! Pretty cool when something you love brings success, right? Tell me more about your movie!"
+        "Congrats, Joanna! Not surprised at all that your hard work paid off. Must feel awesome to see your script come alive in a movie! Pretty cool when something you love brings success, right? Tell me more about your movie!",
+        "Hey Nate! Just finished something - pretty wild journey!"
       ]
     },
     {
@@ -1347,17 +1325,17 @@
       ],
       "retrieved_top_attrs": [
         "D14:15",
-        "D18:7",
         "D28:33",
         "D25:29",
-        "D15:16"
+        "D15:16",
+        "D11:18"
       ],
       "retrieved_top_texts": [
         "Sounds like fun! It's good to have friends that share your interests!",
-        "Thanks, Nate! Really appreciate your kind words. It's knowing that my writing can make a difference that keeps me going, even on tough days. So glad to have this outlet to share my stories and hopefully have an impact. How about you? Anything new since we last talked?",
         "Bye Joanna!",
         "See you later Joanna!",
-        "Of course! Well see you later Joanna!"
+        "Of course! Well see you later Joanna!",
+        "Sounds like a plan! Thanks for the invite Joanna!"
       ]
     },
     {
@@ -1373,17 +1351,17 @@
       ],
       "retrieved_top_attrs": [
         "D26:5",
-        "D14:3",
-        "D6:12",
-        "D9:2",
-        "D6:11"
+        "D26:6",
+        "D28:33",
+        "D25:29",
+        "D20:19"
       ],
       "retrieved_top_texts": [
         "Thanks Nate! Your support and encouragement mean a lot. Writing isn't always easy but moments like these make me appreciate it. I'm so thankful for all the opportunities. Last week, I found these old notebooks with my early writings - it was cool to see how far I've come.",
-        "Thanks, Nate. It can feel like a step back sometimes. But I appreciate your kind words and encouragement.",
-        "Thanks Nate! Appreciate your kind words and support. Let's keep going for our dreams and work hard. Catch you later!",
-        "Hey Joanna! That's awesome! Having a supportive group around you can really make a difference. What kind of projects are you working on with them?",
-        "Thanks, Joanna. Really appreciate your help and kind words. I'm going to keep working hard on it and see what happens. Good luck with your project, I'm sure it will turn out great!"
+        "That's cool! You must love seeing how you've grown as an artist. Is there a favorite piece from your early writings that stands out to you?",
+        "Bye Joanna!",
+        "See you later Joanna!",
+        "Bye Joanna! Good luck!"
       ]
     },
     {
@@ -1423,17 +1401,17 @@
       ],
       "retrieved_top_attrs": [
         "D1:12",
-        "D3:15",
-        "D24:1",
-        "D27:8",
-        "D1:10"
+        "D28:33",
+        "D25:29",
+        "D15:16",
+        "D11:18"
       ],
       "retrieved_top_texts": [
         "Cool, Nate! So we both have similar interests. What type of movies do you like best?",
-        "I can tell! Your cooking skills are awesome. Seen any good movies lately?",
-        "Hey Joanna, what's been up? Haven't seen you since we last talked.",
-        "Thanks Nate! Writing has always been a passion of mine. I got the idea for this script from a dream. How have your turtles been? I haven't seen pictures of them in a while!",
-        "Yeah! Besides writing, I also enjoy reading, watching movies, and exploring nature. Anything else you enjoy doing, Nate?"
+        "Bye Joanna!",
+        "See you later Joanna!",
+        "Of course! Well see you later Joanna!",
+        "Sounds like a plan! Thanks for the invite Joanna!"
       ]
     },
     {
@@ -1448,17 +1426,17 @@
       ],
       "retrieved_top_attrs": [
         "D13:1",
-        "D24:2",
-        "D13:2",
-        "D12:7",
-        "D12:9"
+        "D19:9",
+        "D2:24",
+        "D13:7",
+        "D5:14"
       ],
       "retrieved_top_texts": [
         "Hey Jo! Been ages since we last talked. Here's something cool that happened the other day - I took Max for a walk and ran into this super nice couple who had a dog. It turns out they live close by. We decided to do doggy playdates, which is awesome considering we all need friends for our pets.",
-        "Hey Nate! I have been revising and perfecting the recipe I made for my family and it turned out really tasty. What's been happening with you?",
-        "Hey Nate! Great to hear from you. Sounds like a nice encounter on your walk. Connecting with others who have pets can be uplifting and rewarding.",
-        "Yep, totally! Pets make us so much happier and never let us down. Have you thought any more of getting one of your own?",
-        "Aww, that's unfortunate. It's nice seeing the joy pets bring to others, though. How do you find comfort when you don't have any?"
+        "I'm taking some time off this weekend to chill with my pets. Anything cool happening with you?",
+        "Awesome! There are lots of things that can bring you joy without pets. What else brings you joy?",
+        "Thanks! I just really enjoy watching our pets play with one another. Its like a dream come true seeing my dog so happy.",
+        "Pets really seem to do that to everyone don't they! So, what about your script now? Any ideas for the next steps?"
       ]
     },
     {
@@ -1471,18 +1449,18 @@
         "D16:1"
       ],
       "retrieved_top_attrs": [
+        "D17:2",
         "D27:12",
-        "D15:3",
-        "D22:12",
-        "D17:21",
-        "D11:13"
+        "D11:13",
+        "D17:3",
+        "D23:20"
       ],
       "retrieved_top_texts": [
+        "Congrats, Nate! That's awesome! So proud of you. Your hard work really paid off - keep it up! BTW, I took a road trip for research for my next movie while you were winning. Much-needed break and a chance to explore new places and get inspired.",
         "Yep! I actually just submitted a few more last week! Hoping to hear back from them soon, though I assume a few will be rejected.",
-        "Thanks, Nate! It was a real roller coaster, but seeing the hard work pay off was amazing. Spider-Man has always been a favorite of mine - I mean, who doesn't love Peter Parker's struggles between being a hero and being a person? But I'm kind of a sucker for any superhero - everyone has their own rad story and powers. Do you have a favorite superhero?",
-        "I'm always here for you, Joanna! You've worked so hard and accomplished a lot – I'm proud. Keep on going!",
-        "No problem, Joanna. I'm here for you. Your hard work will pay off, I promise. Believe in yourself and your talent - you're incredible!",
-        "I always feel like I could write a whole movie when I'm out there in cool places like that!"
+        "I always feel like I could write a whole movie when I'm out there in cool places like that!",
+        "Thanks, Joanna! Your support means a lot to me. That road trip sounds great! Where did you go? Did you discover any interesting places?",
+        "Well, it was amazing, so probably 9 or 10 out of 10! Movies can take us to different places and make us feel lots of emotions. What do you love about watching them?"
       ]
     },
     {
@@ -1495,18 +1473,18 @@
         "D4:3"
       ],
       "retrieved_top_attrs": [
-        "D20:2",
-        "D19:5",
-        "D10:9",
         "D21:4",
-        "D11:14"
+        "D11:14",
+        "D20:2",
+        "D10:9",
+        "D20:11"
       ],
       "retrieved_top_texts": [
-        "Hey Nate! Cute turtles! Bummer about the setback. Any positive vibes comin' your way? I just revised on of my old recipes and made this!",
-        "They're my little buddies, always calm and peaceful. It makes coming home after a long day of gaming better. The tank expansion has made them so happy! How have you been?",
-        "Not much is new other than the screenplay. Been working on some projects and testing out dairy-free dessert recipes for friends and fam. Here's a pic of a cake I made recently!",
         "Hey Joanna, I'm no writer like you, but something pretty awesome happened. Last Monday I got to teach people vegan ice cream recipes on my own cooking show! It was a bit nerve-wracking to put myself out there, but it was a blast. Plus, I picked up a few new recipes!",
-        "Wow! That's really cool that it inspires you that much! For me I just get deep in thought and think about my life or new recipes."
+        "Wow! That's really cool that it inspires you that much! For me I just get deep in thought and think about my life or new recipes.",
+        "Hey Nate! Cute turtles! Bummer about the setback. Any positive vibes comin' your way? I just revised on of my old recipes and made this!",
+        "Not much is new other than the screenplay. Been working on some projects and testing out dairy-free dessert recipes for friends and fam. Here's a pic of a cake I made recently!",
+        "Woah, those look great, Joanna! It's cool that you make desserts that work for everyone's diets. Do you have any more yummy recipes hiding in there?"
       ]
     },
     {
@@ -1524,18 +1502,18 @@
         "D23:26"
       ],
       "retrieved_top_attrs": [
-        "D21:11",
-        "D18:8",
-        "D17:10",
-        "D3:4",
-        "D27:8"
+        "D1:15",
+        "D22:7",
+        "D9:13",
+        "D28:33",
+        "D19:13"
       ],
       "retrieved_top_texts": [
-        "Hey Nate, my favorite dairy-free treat is this amazing chocolate raspberry tart. It has an almond flour crust, chocolate ganache, and fresh raspberries - it's delicious!",
-        "Thanks, Joanna! Your words mean a lot. Since we last spoke, I started teaching people how to make this. Sharing my love for dairy-free desserts has been fun and rewarding.",
-        "Thanks, Nate! I'm stoked about this new script. It's different from my previous work, but it has the potential to be something awesome! I'll be sure to keep you posted.",
-        "Thanks, Joanna. Not much has changed for me, but I just discovered that I can make coconut milk icecream and gave it a try. It was actually pretty good, so I'm proud of myself.",
-        "Thanks Nate! Writing has always been a passion of mine. I got the idea for this script from a dream. How have your turtles been? I haven't seen pictures of them in a while!"
+        "Wow, movies can be so powerful! Do you have any recommendations for me?",
+        "Taking breaks and reducing stress is pretty nice! Have you watched any good movies recently? I could use some recommendations!",
+        "Wow, that's great to hear! What books do you enjoy? I'm always up for some new book recommendations.",
+        "Bye Joanna!",
+        "Yeah, balance is key! It's so cool how taking care of ourselves helps us be more creative and happier. I'm always looking for something new to read. Got any book recommendations? I've got a lot of books to choose from."
       ]
     },
     {
@@ -1557,14 +1535,14 @@
         "D2:1",
         "D13:17",
         "D27:35",
-        "D21:11"
+        "D15:6"
       ],
       "retrieved_top_texts": [
         "Thanks, Nate! Appreciate all the help. Gonna keep trying new things. See ya later!",
         "Hey Nate! Haven't talked in a few days. Crazy things happened to me!",
         "Sure, Joanna! It's all about finding those little things and cherishing them, otherwise it's easy to get down!",
         "Dang, your full of great ideas Joanna! I really should start doing that as well, or at least write down the things my animals like a lot!",
-        "Hey Nate, my favorite dairy-free treat is this amazing chocolate raspberry tart. It has an almond flour crust, chocolate ganache, and fresh raspberries - it's delicious!"
+        "Thanks Joanna! I got it because it reminded me of something I love. Its presence in my room is a good reminder to keep working on my goals. Any inspiring things in your room?"
       ]
     },
     {
@@ -1632,41 +1610,17 @@
       ],
       "retrieved_top_attrs": [
         "D16:5",
-        "D6:15",
         "D24:6",
-        "D24:5",
-        "D5:5"
+        "D22:6",
+        "D24:1",
+        "D6:15"
       ],
       "retrieved_top_texts": [
         "Overcoming challenges builds strength and pushes personal growth. It's about the journey and what we learn, not just winning. This was a great reminder for me. Got any examples from that sport you mentioned?",
-        "Yeah! Winning a championship is my number one goal. But I also want to make a difference away from the court, like through charity or inspiring people. Basketball has been great to me, so I want to give something back.",
         "Winning was such a thrill, and it was an awesome moment. These experiences really make me love the game.",
-        "Wow, that's amazing! Winning must have been so thrilling!",
-        "Awesome! Winning a tough game must have been such an exhilarating experience!"
-      ]
-    },
-    {
-      "sample_id": "conv-43",
-      "category": 1,
-      "category_name": "multi-hop",
-      "question": "How many times has John injured his ankle?",
-      "evidence": [
-        "D18:2",
-        "D19:6"
-      ],
-      "retrieved_top_attrs": [
-        "D24:10",
-        "D11:10",
-        "D12:22",
-        "D12:20",
-        "D27:8"
-      ],
-      "retrieved_top_texts": [
-        "Yeah, I injured myself not too long ago. It sucked because I had to miss some games and couldn't help my team.",
-        "Edinburgh, Scotland would be great for a magical vibe. It's the birthplace of Harry Potter and has awesome history and architecture. Plus, it's a beautiful city. What do you think?",
-        "I really admire his work ethic and dedication to the game, such an inspiration.",
-        "Thanks! The Wolves are my team for sure. And LeBron is the man - love his skills and leadership.",
-        "I've always wanted to learn Spanish. I just stared with it. It's such a useful language with many personal and professional opportunities!"
+        "Thanks! The best part for me was the camaraderie we built both on and off the court. Winning felt amazing and it was definitely worth all the hard work we put in.",
+        "Hey John, catch up time! What've you been up to? Any good b-ball games lately?",
+        "Yeah! Winning a championship is my number one goal. But I also want to make a difference away from the court, like through charity or inspiring people. Basketball has been great to me, so I want to give something back."
       ]
     },
     {
@@ -1681,16 +1635,16 @@
       "retrieved_top_attrs": [
         "D6:14",
         "D11:14",
-        "D12:20",
         "D11:15",
-        "D12:25"
+        "D3:11",
+        "D11:13"
       ],
       "retrieved_top_texts": [
         "Wow! You really made your childhood dream come true. It's impressive how your dedication and hard work paid off. It's awesome how our passions shape our lives. Do you have any big goals for your basketball career?",
         "Wow, that looks amazing! What do you love most about your basketball career?",
-        "Thanks! The Wolves are my team for sure. And LeBron is the man - love his skills and leadership.",
         "Thanks! I love playing pro ball - it's a constant challenge and keeps me growing. There's nothing like seeing myself get better and beating goals. Plus, playing with my teammates and having the fans cheer is awesome. Basketball gives me a great sense of satisfaction and purpose.",
-        "Wow! Meeting him and seeing him play must've been awesome. I can only imagine his skills up close."
+        "I used my contacts in the basketball industry and my marketing skills to make connections. Networking plays a big role in getting endorsements, and I'm grateful for the support I've received.",
+        "Thanks! I'll definitely reach out if I need more suggestions. Appreciate the help! Here's a pic I snapped during one of our practices. The sunset looked amazing on the court. Moments like these make me so grateful for my basketball career."
       ]
     },
     {
@@ -1710,16 +1664,16 @@
       "retrieved_top_attrs": [
         "D15:5",
         "D19:19",
-        "D5:12",
         "D11:25",
-        "D19:23"
+        "D19:23",
+        "D22:14"
       ],
       "retrieved_top_texts": [
         "Thanks! Books, movies, and real-life experiences all fire up my creativity. For example, reading about castles in the UK gave me loads of ideas. Plus, certain authors are like goldmines of inspiration for me. Connecting with the things I love makes writing even more fun.",
         "Yeah, John! I recently read a book that really made a big impact on me. It's all about how small changes can make big differences. It really changed the way I do things. Have you read any good books lately?",
-        "Having someone to support and motivate you is so important, whether it's in sports or any other aspect of life. I know you've found your peace in reading fantasy books - that's amazing! What book are you currently reading? Anything that has stood out to you?",
         "Thanks! I'll definitely check it out - looks like a great book to read while traveling. Can't wait to dive into it! Here's a photo of my bookshelf. You can see some of the books I've read and enjoyed.",
-        "Definitely! Books have a way of opening up new worlds, inspiring us, and making us think. They have the power to make us feel better and help us grow, which is amazing. It's great that we share a love for reading. Let's keep exploring books and motivating each other! Talk to you later!"
+        "Definitely! Books have a way of opening up new worlds, inspiring us, and making us think. They have the power to make us feel better and help us grow, which is amazing. It's great that we share a love for reading. Let's keep exploring books and motivating each other! Talk to you later!",
+        "That's cool! I've heard it's such an inspiring book. Have you read all of George R. R. Martin's books?"
       ]
     },
     {
@@ -1736,18 +1690,18 @@
         "D22:12"
       ],
       "retrieved_top_attrs": [
-        "D5:12",
-        "D11:25",
         "D22:14",
-        "D19:19",
-        "D20:22"
+        "D14:21",
+        "D27:16",
+        "D11:25",
+        "D19:19"
       ],
       "retrieved_top_texts": [
-        "Having someone to support and motivate you is so important, whether it's in sports or any other aspect of life. I know you've found your peace in reading fantasy books - that's amazing! What book are you currently reading? Anything that has stood out to you?",
-        "Thanks! I'll definitely check it out - looks like a great book to read while traveling. Can't wait to dive into it! Here's a photo of my bookshelf. You can see some of the books I've read and enjoyed.",
         "That's cool! I've heard it's such an inspiring book. Have you read all of George R. R. Martin's books?",
-        "Yeah, John! I recently read a book that really made a big impact on me. It's all about how small changes can make big differences. It really changed the way I do things. Have you read any good books lately?",
-        "Yeah, I've read that other popular fantasy series too! It's one of my favorites. It has such a cool story!"
+        "Cool! Finding that balance is key. Are you currently reading any books?",
+        "Thanks! I won't give up on it. What got you into books?",
+        "Thanks! I'll definitely check it out - looks like a great book to read while traveling. Can't wait to dive into it! Here's a photo of my bookshelf. You can see some of the books I've read and enjoyed.",
+        "Yeah, John! I recently read a book that really made a big impact on me. It's all about how small changes can make big differences. It really changed the way I do things. Have you read any good books lately?"
       ]
     },
     {
@@ -1765,18 +1719,18 @@
         "D22:13"
       ],
       "retrieved_top_attrs": [
+        "D2:13",
         "D19:19",
-        "D5:12",
         "D11:25",
         "D19:23",
-        "D22:9"
+        "D22:14"
       ],
       "retrieved_top_texts": [
+        "Definitely, those reminders really help. And there's definitely a chance I'll be visiting more HP spots in the future. It feels like I'm stepping into the books!",
         "Yeah, John! I recently read a book that really made a big impact on me. It's all about how small changes can make big differences. It really changed the way I do things. Have you read any good books lately?",
-        "Having someone to support and motivate you is so important, whether it's in sports or any other aspect of life. I know you've found your peace in reading fantasy books - that's amazing! What book are you currently reading? Anything that has stood out to you?",
         "Thanks! I'll definitely check it out - looks like a great book to read while traveling. Can't wait to dive into it! Here's a photo of my bookshelf. You can see some of the books I've read and enjoyed.",
         "Definitely! Books have a way of opening up new worlds, inspiring us, and making us think. They have the power to make us feel better and help us grow, which is amazing. It's great that we share a love for reading. Let's keep exploring books and motivating each other! Talk to you later!",
-        "Awesome! Sounds like your team has something similar to the characters in the series. They rely on each other to push through challenges. By the way, what book are you currently reading? I'm always on the lookout for new reads!"
+        "That's cool! I've heard it's such an inspiring book. Have you read all of George R. R. Martin's books?"
       ]
     },
     {
@@ -1842,18 +1796,18 @@
         "D15:32"
       ],
       "retrieved_top_attrs": [
-        "D17:1",
-        "D25:14",
-        "D14:1",
-        "D20:22",
-        "D1:13"
+        "D26:37",
+        "D11:29",
+        "D24:3",
+        "D8:35",
+        "D6:23"
       ],
       "retrieved_top_texts": [
-        "Hey Tim! Great to chat again. So much has happened!",
-        "Our team has seen the most growth in communication and bonding. It has really helped our performances by allowing us to understand each other's strengths and weaknesses.",
-        "Hey Tim! Long time no talk - a lot has been going on since then!",
-        "Yeah, I've read that other popular fantasy series too! It's one of my favorites. It has such a cool story!",
-        "Things are going well! The team has been really nice and I'm having fun. How's your fan project coming along?"
+        "That sounds exciting!",
+        "Thanks! Take care!",
+        "Congrats, John! That sounds like an intense game.",
+        "Glad you had fun!",
+        "Thanks! Talk to you later!"
       ]
     },
     {
@@ -1890,18 +1844,18 @@
         "D16:1"
       ],
       "retrieved_top_attrs": [
-        "D6:6",
         "D15:13",
         "D4:2",
         "D23:1",
-        "D6:10"
+        "D6:10",
+        "D15:9"
       ],
       "retrieved_top_texts": [
-        "I can just imagine the thrill of being in that kind of atmosphere. Must've been an amazing experience for you! BTW, I have been writing more articles - it lets me combine my love for reading and the joy of sharing great stories. Here's my latest one!",
         "Nice job, John! What did you write on that whiteboard?",
         "Hey Tim! Congrats on the opportunity to write about what you're into! How did it happen?",
         "Hey Tim, great to see you! Any new success stories?",
-        "Your shoes must have a lot of stories behind them. Want to share some with me?"
+        "Your shoes must have a lot of stories behind them. Want to share some with me?",
+        "I've been reading her stuff for a long time. Her stories have been with me and still inspire me. There's something special about her writing that really speaks to me."
       ]
     },
     {
@@ -1914,18 +1868,18 @@
         "D12:6"
       ],
       "retrieved_top_attrs": [
-        "D15:28",
         "D25:2",
         "D12:16",
         "D10:8",
-        "D8:27"
+        "D8:27",
+        "D25:4"
       ],
       "retrieved_top_texts": [
-        "What people usually do when you hang out with friends and family - movies, dinner out. And what are your favorite activities for fun?",
         "Yo Tim! Great to hear from you. Things have been wild! Last week I got this amazing deal with a renowned outdoor gear company. So pumped!",
         "Cool! What do you enjoy about them so much?",
         "I added some sage for a nice flavor. Enjoy!",
-        "Those are awesome! Any other holiday movies do you enjoy watching?"
+        "Those are awesome! Any other holiday movies do you enjoy watching?",
+        "Cheers! Got some awesome hiking stuff and outdoor gear - all top-notch. The photoshoot went really well too. We did it in a gorgeous forest and the photographer got some epic shots of me doing my thing - it was amazing!"
       ]
     },
     {
@@ -2003,6 +1957,1048 @@
         "Just the GoT series. Have you tried reading any of them?",
         "Wow! That's awesome! Were you playing or watching?",
         "Hey John, I had a tough time with my English lit class. Did an analysis on this series and I think it went ok!"
+      ]
+    },
+    {
+      "sample_id": "conv-43",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "Which book was John reading during his recovery from an ankle injury?",
+      "evidence": [
+        "D19:20",
+        "D18:2"
+      ],
+      "retrieved_top_attrs": [
+        "D14:21",
+        "D4:10",
+        "D22:10",
+        "D19:16",
+        "D5:12"
+      ],
+      "retrieved_top_texts": [
+        "Cool! Finding that balance is key. Are you currently reading any books?",
+        "I've been reading this inspiring book, it reminds me to keep dreaming.",
+        "Thanks! I'm currently reading a book that I really enjoy. I highly recommend it!",
+        "I love non-fiction books about personal development and mindset. They help me know myself better. Do you enjoy reading other types of books as well?",
+        "Having someone to support and motivate you is so important, whether it's in sports or any other aspect of life. I know you've found your peace in reading fantasy books - that's amazing! What book are you currently reading? Anything that has stood out to you?"
+      ]
+    },
+    {
+      "sample_id": "conv-43",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "Which career-high performances did John achieve in 2023?",
+      "evidence": [
+        "D3:1",
+        "D23:2"
+      ],
+      "retrieved_top_attrs": [
+        "D23:3",
+        "D25:14",
+        "D22:10",
+        "D11:14",
+        "D29:10"
+      ],
+      "retrieved_top_texts": [
+        "Thanks! It's a bummer about your English lit class, but you did your best. By the way, I had a career-high in assists last Friday in our big game against our rival. Yay!",
+        "Our team has seen the most growth in communication and bonding. It has really helped our performances by allowing us to understand each other's strengths and weaknesses.",
+        "Thanks! I'm currently reading a book that I really enjoy. I highly recommend it!",
+        "Wow, that looks amazing! What do you love most about your basketball career?",
+        "Great going! Taking initiative is a must if you wanna achieve your goals. I'm excited to hear about all your future adventures!"
+      ]
+    },
+    {
+      "sample_id": "conv-43",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "Which geographical locations has Tim been to?",
+      "evidence": [
+        "D1:18",
+        "D3:2",
+        "D14:16"
+      ],
+      "retrieved_top_attrs": [
+        "D15:17",
+        "D14:1",
+        "D14:20",
+        "D12:1",
+        "D15:11"
+      ],
+      "retrieved_top_texts": [
+        "That's awesome! What keeps you motivated during challenging times?",
+        "Hey Tim! Long time no talk - a lot has been going on since then!",
+        "Doing good! Busy with studies but finding time to relax with books - good balance.",
+        "Hey John! Awesome catchin' up with you! A lot's changed since last time.",
+        "Yeah! There's a quote by J.K. Rowling that I really like: \"Turn on the light - happiness hides in the darkest of times.\" That's how I keep hope alive during tough times."
+      ]
+    },
+    {
+      "sample_id": "conv-43",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "Who is Tim and John's favorite basketball player?",
+      "evidence": [
+        "D12:20",
+        "D12:22",
+        "D16:9"
+      ],
+      "retrieved_top_attrs": [
+        "D12:19",
+        "D21:5",
+        "D16:7",
+        "D16:8",
+        "D19:10"
+      ],
+      "retrieved_top_texts": [
+        "Cool! Who's your favorite basketball team/player?",
+        "Wow,! Being a pro basketball player must be quite a journey. Is it living up to your expectations?",
+        "Wow, that must have been an incredible feeling! You really showed determination and perseverance. Do you have any photos or keepsakes from the game? I'd love to see them! By the way, I have something special too - this is my prized possession, a basketball signed by my favorite player. It serves as a reminder of all the hard work.",
+        "Wow! What makes your favorite player so inspiring? Do you have any special stories or moments with them?",
+        "I faced some tough times while playing basketball. I messed up during a big game, and it was really hard to accept. Instead of getting stuck in that moment, I worked hard to get better. It taught me that resilience is key and owning up to mistakes is important. Gotta keep growing and striving to be a strong player and teammate. So grateful."
+      ]
+    },
+    {
+      "sample_id": "conv-43",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "what are John's goals with regards to his basketball career?",
+      "evidence": [
+        "D1:9",
+        "D6:15",
+        "D11:17"
+      ],
+      "retrieved_top_attrs": [
+        "D6:14",
+        "D11:13",
+        "D11:14",
+        "D23:7",
+        "D11:15"
+      ],
+      "retrieved_top_texts": [
+        "Wow! You really made your childhood dream come true. It's impressive how your dedication and hard work paid off. It's awesome how our passions shape our lives. Do you have any big goals for your basketball career?",
+        "Thanks! I'll definitely reach out if I need more suggestions. Appreciate the help! Here's a pic I snapped during one of our practices. The sunset looked amazing on the court. Moments like these make me so grateful for my basketball career.",
+        "Wow, that looks amazing! What do you love most about your basketball career?",
+        "I've had some thrilling games in my career. My favorite was when we were down 10 in the 4th and I hit the buzzer-beater shot to win. The atmosphere was incredible and it was such a thrilling experience. Those moments make me love basketball so much.",
+        "Thanks! I love playing pro ball - it's a constant challenge and keeps me growing. There's nothing like seeing myself get better and beating goals. Plus, playing with my teammates and having the fans cheer is awesome. Basketball gives me a great sense of satisfaction and purpose."
+      ]
+    },
+    {
+      "sample_id": "conv-43",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "which country has Tim visited most frequently in his travels?",
+      "evidence": [
+        "D1:18",
+        "D13:1",
+        "D18:1"
+      ],
+      "retrieved_top_attrs": [
+        "D29:11",
+        "D25:13",
+        "D11:14",
+        "D28:6",
+        "D26:12"
+      ],
+      "retrieved_top_texts": [
+        "Thanks! I'll keep you in the loop about my travels. Is there anywhere you recommend visiting?",
+        "What areas have you seen the most growth in during your training?",
+        "Wow, that looks amazing! What do you love most about your basketball career?",
+        "Wow, great view! Have you visited any other places?",
+        "It's true. Facing challenges can be tough, but it can make us stronger. I just visited a travel agency to see what the requirements would be for my next dream trip."
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "Did Audrey and Andrew grow up with a pet dog?",
+      "evidence": [
+        "D2:16",
+        "D13:10"
+      ],
+      "retrieved_top_attrs": [
+        "D6:2",
+        "D27:5",
+        "D8:23",
+        "D24:1",
+        "D28:1"
+      ],
+      "retrieved_top_texts": [
+        "Hey Andrew! That hike sounds great. Nature is good for the soul, right? My week's been good - taking care of my four doggies and making sure they're happy and healthy took up most of my free time. Also, exciting news! I signed up for a workshop about bonding with my pet next month. Can't wait to learn new stuff and strengthen my bond with my pets. What's up with you?",
+        "That looks fun! Seeing those adorable pups made me think about getting another dog, but I'm still not sure. Having two dogs is already a lot to take care of. Do you have any tips on being a multi-dog pet owner?",
+        "Aww so cute. Your dogs look so content in that picture. The meadow looks so nice. It's great that nature brings your pets joy!",
+        "Hey Andrew, hope you're doing ok. I recently had a good week - I went to a pet store last Monday to buy toys for my dogs and it was great seeing them so excited when I got them home. It made me realize how much I love them and how much joy they bring me.",
+        "Hey Andrew! Long time no talk! Last Friday I took my fur kids to the pet salon - they were so psyched and their tails were wagging like crazy! It took a while for them to calm down, but all cut up they looked so cute! "
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "Has Andrew moved into a new apartment for his dogs?",
+      "evidence": [
+        "D5:5",
+        "D28:12"
+      ],
+      "retrieved_top_attrs": [
+        "D2:12",
+        "D20:8",
+        "D10:12",
+        "D1:3",
+        "D26:38"
+      ],
+      "retrieved_top_texts": [
+        "Thanks! Fingers crossed for the apartment and that furry friend.",
+        "Yeah, Andrew! The pups and I are loving it. Being out in nature and checking out new trails with the dogs is so different from being in the city.",
+        "Lately I've been finding new hobbies since I can't hike. I've been getting into cooking more and trying out new recipes - it's been enjoyable. Do you enjoy cooking? Any favorite recipes?",
+        "Congrats on the new job! So I got these new collars and tags for my dogs - so cute!",
+        "Yeah, photos are gonna turn out great with the dogs!"
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "How does Andrew feel about his current work?",
+      "evidence": [
+        "D12:3",
+        "D16:1",
+        "D18:1",
+        "D10:16"
+      ],
+      "retrieved_top_attrs": [
+        "D18:2",
+        "D22:12",
+        "D6:9",
+        "D20:25",
+        "D6:3"
+      ],
+      "retrieved_top_texts": [
+        "Hey Andrew, good to hear from you. Sorry to hear about work being tough. Finding that balance can be challenging, huh? It can feel like there's not enough time. Just remember to take care of yourself and find ways to manage stress. Hang in there!",
+        "Yeah, you got it. Life is all about rolling with the punches and making a difference, whatever happens. Your hard work is really amazing.",
+        "Thanks! I'm excited to hear about it. Have a great time at the workshop!",
+        "I learned a lot about animals, plants, and ecosystems. It's fascinating to see how it all works together.",
+        "That's awesome! Glad have the opportunity to bond with your pets. That workshop sounds cool. Where did you hear about it? And the one in the picture is adorable!"
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "How many dogs does Andrew have?",
+      "evidence": [
+        "D12:1",
+        "D24:2",
+        "D28:6"
+      ],
+      "retrieved_top_attrs": [
+        "D26:38",
+        "D11:13",
+        "D6:13",
+        "D18:21",
+        "D9:10"
+      ],
+      "retrieved_top_texts": [
+        "Yeah, photos are gonna turn out great with the dogs!",
+        "Agreed! It's going to be a great with the dogs!",
+        "Yeah I would't want to be punished, let alone puppies and dogs.",
+        "Thanks! I appreciate the help. I'll keep searching for that perfect place for dogs!",
+        "Not a problem at all! Let me know if you need any help finding more places for dogs."
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "How many times did Audrey and Andew plan to hike together?",
+      "evidence": [
+        "D11:7",
+        "D24:13",
+        "D26:20"
+      ],
+      "retrieved_top_attrs": [
+        "D14:6",
+        "D18:16",
+        "D2:19",
+        "D26:18",
+        "D16:16"
+      ],
+      "retrieved_top_texts": [
+        "It's been tough at times, but overall it's going great. We're all growing together. Check out this pic of us on a trail hike!",
+        "Nice escape! Glad you got out hiking. Are you planning to hike with Toby someday?",
+        " Taking them on hikes must be awesome! That makes me want to hike with my dogs.",
+        "Yup! It's close by and it's dog-friendly too, with killer views. Wanna plan a hike soon?",
+        "Haha thanks! Your pics of hikes are always nice."
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What activity do Audrey's dogs like to do in the dog park?",
+      "evidence": [
+        "D4:21",
+        "D10:7",
+        "D13:8",
+        "D23:14",
+        "D27:12"
+      ],
+      "retrieved_top_attrs": [
+        "D8:8",
+        "D14:2",
+        "D23:10",
+        "D23:13",
+        "D20:6"
+      ],
+      "retrieved_top_texts": [
+        "Wow going all in huh? Have fun with kayaking and bungee jumping! Last week, I found a great spot for my dogs' walk. It's a small park with a trail surrounded by trees. It's so nice and I think my dogs like it too. Would you like to come along?",
+        "That's awesome! That must be fun! I just started agility classes with my pups at a dog park. It's awesome to watch them learn and build relationships with other dogs. Seeing them face and conquer challenges really warms my heart.",
+        "The dog park is like paradise for them! They love socializing with the other pups and getting lots of exercise. It's so cute to watch them running around and smelling all the stuff. Do you have any funny stories about your pup at the dog park?",
+        "My pup Toby is German Shephard and loves cute sweaters! He's so active. What games do your dogs like to play at the park?",
+        "We took them to the dog park nearby last Saturday. There was a big grassy area for them to play and lots of shaded spots for me to relax. They had a great time!"
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What are some foods that Audrey likes eating?",
+      "evidence": [
+        "D3:18",
+        "D10:13",
+        "D10:23",
+        "D25:6"
+      ],
+      "retrieved_top_attrs": [
+        "D10:27",
+        "D10:19",
+        "D26:47",
+        "D6:16",
+        "D5:22"
+      ],
+      "retrieved_top_texts": [
+        "No problem! I hope you enjoy making and eating it. Let me know how it turns out!",
+        "Agreed! Cooking and eating the food is so rewarding; it's like a form of self-care. I love throwing on some music, pouring a glass of wine, and just going with the flow in the kitchen. It's so therapeutic. See how beautiful this dish is?",
+        "Yep ttyl!",
+        "Yup, ttyl!",
+        "Have fun! Ttyl!"
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What are some problems that Andrew faces before he adopted Toby?",
+      "evidence": [
+        "D2:12",
+        "D5:3",
+        "D5:5",
+        "D5:7"
+      ],
+      "retrieved_top_attrs": [
+        "D26:4",
+        "D27:6",
+        "D2:1",
+        "D3:25",
+        "D17:17"
+      ],
+      "retrieved_top_texts": [
+        "So what tips did you get? What will you be doing to help with the problems?",
+        "Maybe you want to take care of Toby and Buddy first. Having them happy and healthy would be a good first step before going all in for more dogs.",
+        "Hey Andrew, I got a surprise for you! We adopted another puppy called Pixie. She's SO cute! Isn't she just the cutest?",
+        "Aww, so cute! I bet their happy faces means a lot to you.",
+        "Yep, Audrey. Thanks for everything - you rock! Here's a pic of Toby."
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What are the names of Andrew's dogs?",
+      "evidence": [
+        "D12:1",
+        "D24:6",
+        "D28:8"
+      ],
+      "retrieved_top_attrs": [
+        "D1:6",
+        "D26:38",
+        "D11:13",
+        "D6:13",
+        "D21:15"
+      ],
+      "retrieved_top_texts": [
+        "Cute little guys! What are their names and how long have you had them?",
+        "Yeah, photos are gonna turn out great with the dogs!",
+        "Agreed! It's going to be a great with the dogs!",
+        "Yeah I would't want to be punished, let alone puppies and dogs.",
+        "Thank you really. Well, take care and say hi to your dogs for me."
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What did Audrey get wtih having so many dogs?",
+      "evidence": [
+        "D2:15",
+        "D23:18"
+      ],
+      "retrieved_top_attrs": [
+        "D27:6",
+        "D24:9",
+        "D2:5",
+        "D8:20",
+        "D28:14"
+      ],
+      "retrieved_top_texts": [
+        "Maybe you want to take care of Toby and Buddy first. Having them happy and healthy would be a good first step before going all in for more dogs.",
+        "Nice! Buddy seems to be having a great time! It's nice to spend time together and get some fresh air.",
+        "Pixie's fitting in great! It took her a few days to get used to the other dogs, but now they're awesome friends. They love playing and exploring the house - so cute!\n",
+        "Definitely! Dogs and nature bring me so much joy and peace.",
+        "Thanks! We feel so lucky to have Scout. It's been amazing having so many furry friends! How are your dogs doing now? "
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What does Andrew view his pets as?",
+      "evidence": [
+        "D15:14",
+        "D28:18"
+      ],
+      "retrieved_top_attrs": [
+        "D1:12",
+        "D11:33",
+        "D8:19",
+        "D12:11",
+        "D23:5"
+      ],
+      "retrieved_top_texts": [
+        "No, no pets right now. But I do love animals.",
+        "Nice! That sunset with the view is amazing, especially with nature around.",
+        "Of course! Nature always makes us and our pets so happy.",
+        "It really are the small things like these show we care a ton about out pets.",
+        "So this new spot just opened the other day. It's awesome with a sick view and vibe."
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What does Audrey view her pets as?",
+      "evidence": [
+        "D15:15",
+        "D23:18"
+      ],
+      "retrieved_top_attrs": [
+        "D6:12",
+        "D9:11",
+        "D1:11",
+        "D4:7",
+        "D12:10"
+      ],
+      "retrieved_top_texts": [
+        "Haha, I just think its important to have pets learn how to behave on a positive reinforcement way. Punishment is never the proper way for pets ya know?",
+        "Thanks! Appreciate the offer. Super nice to have friends who understand our love for our pets!",
+        "They really do! It's great how much happiness they bring. Do you have any pets?",
+        "Wow, that view looks great! It really captures that calming and peaceful feeling. It must be really satisfying to capture that tranquility.",
+        "Thanks! I did put a lot of love into making these tags. I want my pets to feel seen and loved."
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What has Andrew done with his dogs?",
+      "evidence": [
+        "D14:27",
+        "D24:8"
+      ],
+      "retrieved_top_attrs": [
+        "D26:38",
+        "D11:13",
+        "D6:13",
+        "D21:15",
+        "D11:19"
+      ],
+      "retrieved_top_texts": [
+        "Yeah, photos are gonna turn out great with the dogs!",
+        "Agreed! It's going to be a great with the dogs!",
+        "Yeah I would't want to be punished, let alone puppies and dogs.",
+        "Thank you really. Well, take care and say hi to your dogs for me.",
+        "Oh I'm sure, dogs definitely add lots of fun to our daily life."
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What is a good place for dogs to run around freely and meet new friends?",
+      "evidence": [
+        "D4:25",
+        "D14:2",
+        "D23:10"
+      ],
+      "retrieved_top_attrs": [
+        "D23:14",
+        "D11:6",
+        "D11:11",
+        "D11:12",
+        "D9:2"
+      ],
+      "retrieved_top_texts": [
+        "My dogs go crazy for Fetch and Frisbee, and they love to run around and meet other pups. They could keep running for hours!",
+        "Cool, I should join you for a hike and bring my dogs. It would be great to have a chance where they can run freely.",
+        "Sounds good! Let's make sure the trail is safe for the dogs to run around and have fun.",
+        "Yep! After all safety is top priority when the dogs are outside running around.",
+        "That's awesome! Your new place looks great. Your fur babies must be thrilled with the bigger backyard. I'm sure they're having a blast running around. How are they settling in?"
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What is a shared frustration regarding dog ownership for Audrey and Andrew?",
+      "evidence": [
+        "D7:8",
+        "D10:5"
+      ],
+      "retrieved_top_attrs": [
+        "D19:11",
+        "D27:9",
+        "D8:9",
+        "D20:8",
+        "D9:8"
+      ],
+      "retrieved_top_texts": [
+        "Hmm that does sound like a great way to bond! What breeds are they again? Their breeds might make a difference regarding how well they bond too.",
+        "Thanks Audrey! That's so nice of you. I think I've managed to make it work with dogs while still living in the city.",
+        "Sounds great, Audrey! I'd love to join you and your pups for a walk. Being in nature with dogs sounds like a great time!",
+        "Yeah, Andrew! The pups and I are loving it. Being out in nature and checking out new trails with the dogs is so different from being in the city.",
+        "This is the doggy daycare near me, it has a big indoor space for dogs to play."
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What is something that Audrey often dresses up her dogs with?",
+      "evidence": [
+        "D4:23",
+        "D4:25",
+        "D19:6"
+      ],
+      "retrieved_top_attrs": [
+        "D1:9",
+        "D4:3",
+        "D19:10",
+        "D11:4",
+        "D8:20"
+      ],
+      "retrieved_top_texts": [
+        "Absolutely! They're city dogs and we explore all the time. They love trying out new parks and trails. We go on adventures together very often.",
+        "That looks great! How often are you able to go hiking now?",
+        "Very often, multiple times a day even, it's a great exercise for them and great bonding time for us.",
+        "Thanks! I got lucky finding a breeder nearby that has the dogs I wanted. Yeah places that allows dogs are really hard to find unfortunately .",
+        "Definitely! Dogs and nature bring me so much joy and peace."
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What is the biggest stressor in Andrew's life besides not being able to hike frequently?",
+      "evidence": [
+        "D12:3",
+        "D16:1",
+        "D18:1",
+        "D10:16"
+      ],
+      "retrieved_top_attrs": [
+        "D21:5",
+        "D14:9",
+        "D3:1",
+        "D22:2",
+        "D20:2"
+      ],
+      "retrieved_top_texts": [
+        "Haven't been to the beach in a while. Miss being outdoors. It's hard to find open spaces in the city. Used to hike a lot, but it's more challenging now with my work life balance.",
+        "That sounds awesome! Being able to just be in nature and appreciate it is really cool. I wish I could do that more often.",
+        "Hey Audrey! What's up? Missed chatting with ya! Check it out, my girl & I tried out that new cafe scene in the city last weekend! Super fun but kinda sad not being out in nature - that's when I feel like I'm really thriving. Oh man, I miss the peacefulness of being out on a hike.",
+        "You know how it feel right? Bummer not being able to take them for a stroll. They must've been over the moon when you could finally take them out again. Glad you got that adorable pic too! Dogs are awesome like that, huh? Remind us to stop and smell the roses.",
+        "Hey Andrew! Great to hear from you. Have fun at the beach trip! Bet you can't wait to get out to the nature. Can't wait for our hike with the dogs next month. They always put a smile on my face - life's just not the same without them!"
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What kind of indoor activities has Andrew pursued with his girlfriend?",
+      "evidence": [
+        "D13:1",
+        "D23:1",
+        "D25:1",
+        "D19:15"
+      ],
+      "retrieved_top_attrs": [
+        "D9:8",
+        "D14:1",
+        "D26:20",
+        "D3:11",
+        "D11:1"
+      ],
+      "retrieved_top_texts": [
+        "This is the doggy daycare near me, it has a big indoor space for dogs to play.",
+        "Hey, Audrey! I can't wait for the weekend. My girlfriend, Toby and I are going camping. It's been forever since I've been in nature.",
+        "Yay! Does Saturday sound good? We can grab some snacks and have a blast exploring. Because on Sunday I am going on a picnic date with my girlfriend.",
+        "My girlfriend and I love to discover new places to eat around town. It's a great way to try something new and wind down after a long week.",
+        "Hey how's it going? Last Friday was amazing - I had a picnic with my girlfriend and it was so much fun! Being in the nature can be so refreshing and it always brings me joy. "
+      ]
+    },
+    {
+      "sample_id": "conv-44",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What outdoor activities has Andrew done other than hiking in nature?",
+      "evidence": [
+        "D8:1",
+        "D17:1",
+        "D14:1"
+      ],
+      "retrieved_top_attrs": [
+        "D16:13",
+        "D12:4",
+        "D26:32",
+        "D11:29",
+        "D24:10"
+      ],
+      "retrieved_top_texts": [
+        "This weekend I'm heading to a nature reserve to reconnect with the outdoors - excited!",
+        "Yeah you're really stressed then! When work's non-stop, it's hard to get outdoors. Hiking is a great way to relax and take in nature. Do you have plans to go hiking soon? We should plan a trip for both of us and our pups!",
+        "Same! I'm lucky to have a friend like you for these outdoor trips. It's awesome to be out in nature with our furry friends.",
+        "Aww look at them, so cute! It'll definitely be a great day! I love being outdoors and seeing others enjoy it too.",
+        "Yep, he loves checking out new hiking trails with us. It's awesome to see him so stoked and interested in everything nature has to offer."
+      ]
+    },
+    {
+      "sample_id": "conv-47",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "Do both James and John have pets?",
+      "evidence": [
+        "D1:12",
+        "D2:18"
+      ],
+      "retrieved_top_attrs": [
+        "D1:37",
+        "D13:6",
+        "D1:25",
+        "D9:10",
+        "D23:1"
+      ],
+      "retrieved_top_texts": [
+        "Agreed, James!",
+        "It can be rough getting started, but I'm sure you'll do great. Don't be afraid to seek help if you need it. Can't wait to hear about your experience! By the way, I recently started a course that combines my passion for gaming and programming. It's fun and challenging, and it has definitely increased my excitement for both.",
+        "It will be great to work with you, James.",
+        "Sounds great, John! I'm definitely in next time. Hanging out with friends and unwinding is key. By the way, today I decided to spend time with my beloved pets again.\n",
+        "Hey John, it's been a few days since we talked. So much has gone on, both good and bad. Yesterday, when we were at the theater, Samantha loves theater, I asked her to become my girlfriend, and she agreed. We have gone through a lot in this short period. There were good and bad, but I'm happy with her. All that ups and downs were a bit overwhelming, but it's part of life. What about you? Anything interesting lately?"
+      ]
+    },
+    {
+      "sample_id": "conv-47",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "How many charity tournaments has John organized till date?",
+      "evidence": [
+        "D10:2",
+        "D29:1"
+      ],
+      "retrieved_top_attrs": [
+        "D28:6",
+        "D19:9",
+        "D10:5",
+        "D10:4",
+        "D27:1"
+      ],
+      "retrieved_top_texts": [
+        "Lesson learned - save progress! By the way, I organized the programming seminar last week.",
+        "That's a great pic! The graphics are truly stunning! By the way, look how I organized my workplace!",
+        "Wow John, organizing that tournament for charity must have been a ton of effort, but it sounds like it was so worth it!",
+        "Nope, not a new game. We put together a tournament for our favorite game, CS:GO. Lots showed up and we made a bunch of money for charity!",
+        "Hey James! How's it going? I had a blast last week when my programmer friends and I organized an online comp. It was awesome to see everyone show off their skills! Anything new in your life?"
+      ]
+    },
+    {
+      "sample_id": "conv-47",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "How many pets does James have?",
+      "evidence": [
+        "D1:12",
+        "D1:14",
+        "D5:1"
+      ],
+      "retrieved_top_attrs": [
+        "D9:16",
+        "D9:10",
+        "D17:21",
+        "D18:17",
+        "D1:13"
+      ],
+      "retrieved_top_texts": [
+        "My pets, computer games, travel and pizza are all that bring me happiness in life.",
+        "Sounds great, John! I'm definitely in next time. Hanging out with friends and unwinding is key. By the way, today I decided to spend time with my beloved pets again.\n",
+        "Yeah, the bond between us and our pets is amazing. They bring a lot of joy and love. It’s a pity that I don’t have pets, I’ll definitely get one someday. By the way, how was your trip?",
+        "Phew, great that he's okay. It's great that you care so much about your pets!",
+        "Aww, they're adorable! What are the names of your pets? And what are your plans for the app?"
+      ]
+    },
+    {
+      "sample_id": "conv-47",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What are John and James' favorite games?",
+      "evidence": [
+        "D3:11",
+        "D4:16"
+      ],
+      "retrieved_top_attrs": [
+        "D13:20",
+        "D26:12",
+        "D8:15",
+        "D3:19",
+        "D28:26"
+      ],
+      "retrieved_top_texts": [
+        "Sure, John!",
+        "I'm so excited for it! The world and story sound perfect. Thanks for recommending it, John!",
+        "Never heard of it, but it sounds interesting. I'll definitely check it out. Thanks for the recommendation, John!",
+        "Cool, James! That sounds exciting. Have fun exploring different genres of games!",
+        "Wow, James! Those games really sparked your passion for gaming, didn't they?"
+      ]
+    },
+    {
+      "sample_id": "conv-47",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What are the names of James's dogs?",
+      "evidence": [
+        "D1:14",
+        "D5:1"
+      ],
+      "retrieved_top_attrs": [
+        "D31:20",
+        "D1:12",
+        "D31:13",
+        "D19:12",
+        "D17:28"
+      ],
+      "retrieved_top_texts": [
+        "Definitely, James! Dogs are amazing. They bring so much joy and positivity. They accept us without judgement, just love and happiness. I appreciate the daily dose of positivity they bring to my life. Special buddies for sure. By the way, here is my cousin's dog.",
+        "It would be cool! For example, we could write some kind of application for dogs. By the way, my dogs.",
+        "Those rescue dogs were so cute, I wanted to take them all home, but I remembered that I already have three dogs at home. I think having more than three dogs is too much.",
+        "Yesterday I took my three dogs to a beach outing to have fun and bond with other dogkeepers.",
+        "That's my sister and my dogs. We were just chilling together yesterday, and they bring so much happiness to my life."
+      ]
+    },
+    {
+      "sample_id": "conv-47",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What kind of classes has James joined?",
+      "evidence": [
+        "D13:6",
+        "D23:13"
+      ],
+      "retrieved_top_attrs": [
+        "D4:2",
+        "D20:1",
+        "D2:1",
+        "D17:5",
+        "D21:2"
+      ],
+      "retrieved_top_texts": [
+        "Hey John! Yeah, it's been a while. I've been busy, but I joined an online gaming tournament yesterday. It was so intense and fun! Here is a photo report.",
+        "Hey, James! Good to hear from you. I have some awesome news - I joined a programming group online last Friday and it's been incredible! It's awesome to be part of a community of people with similar goals - coding and making a difference.",
+        "Hey John, something awesome happened since we talked. I made a game avatar and joined a new platform. It's so fun exploring and chatting with other gamers - it's a whole new adventure every time! I feel like I'm part of a super cool online community.",
+        "I'm playing mostly online for now, but I also joined a chess club and practice with others. Here's a pic from an intense game I played lately.",
+        " Your pup is so cute, remind me what's their name? I've been helping my younger siblings out with programming since they joined the programming course. It's really cool to see them get into it."
+      ]
+    },
+    {
+      "sample_id": "conv-47",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What kind of games has James tried to develop?",
+      "evidence": [
+        "D13:7",
+        "D1:4",
+        "D27:2"
+      ],
+      "retrieved_top_attrs": [
+        "D8:35",
+        "D5:5",
+        "D4:18",
+        "D19:4",
+        "D3:9"
+      ],
+      "retrieved_top_texts": [
+        "I can't remember such a game. Maybe you have some other interesting games?",
+        "Sounds great! Will I like it? I'm always up for trying new games.",
+        "Apex Legends has awesome graphics and super fast-paced gameplay. It definitely stands out among other games.",
+        "That's great, John! Trying out different genres can really add to your gaming experiences. Have you come across any standout games?",
+        "Cool, James! Gaming is great for chilling out. Btw, since we last spoke, I had the chance to go to a gaming convention - it was amazing! Tried out loads of games, met developers, and even took part in a tournament - unreal! Check out this pic I took!"
+      ]
+    },
+    {
+      "sample_id": "conv-47",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "Which books has John recommended to James?",
+      "evidence": [
+        "D8:14",
+        "D14:10"
+      ],
+      "retrieved_top_attrs": [
+        "D8:12",
+        "D24:4",
+        "D14:11",
+        "D14:6",
+        "D1:37"
+      ],
+      "retrieved_top_texts": [
+        "Wow, that art's awesome! It takes me back to reading fantasy books.",
+        "Thanks, John! I get them from various sources like books, movies, and even dreams.",
+        "Thanks for the recommendations, John! I'll definitely check out those books. What makes them your favorites?",
+        "Well, I bought a lot of new books, and now my bookcase is almost completely filled!",
+        "Agreed, James!"
+      ]
+    },
+    {
+      "sample_id": "conv-47",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "Which countries did James visit in July 2022?",
+      "evidence": [
+        "D16:9",
+        "D17:22"
+      ],
+      "retrieved_top_attrs": [
+        "D6:14",
+        "D16:13",
+        "D16:11",
+        "D6:13",
+        "D6:12"
+      ],
+      "retrieved_top_texts": [
+        "In fact, I haven't visited many countries. Besides Italy, I was also in Turkey and Mexico. What was the last country you visited?",
+        "I plan to return on July 20, I’ll definitely bring you some kind of souvenir!",
+        "I also plan to visit Vancouver. Maybe, I'll go somewhere else.",
+        "Oh, Italy! I always dreamed of visiting there. What other countries have you been to?",
+        "I agree with you, I also love to travel. Last year I visited Italy, for example. A very beautiful country with delicious food."
+      ]
+    },
+    {
+      "sample_id": "conv-47",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "Which of James's family members have visited him in the last year?",
+      "evidence": [
+        "D17:28",
+        "D28:19"
+      ],
+      "retrieved_top_attrs": [
+        "D6:12",
+        "D6:14",
+        "D31:1",
+        "D14:21",
+        "D5:1"
+      ],
+      "retrieved_top_texts": [
+        "I agree with you, I also love to travel. Last year I visited Italy, for example. A very beautiful country with delicious food.",
+        "In fact, I haven't visited many countries. Besides Italy, I was also in Turkey and Mexico. What was the last country you visited?",
+        "Hey John! Guess what? Me and my family are currently on the road trip! We`ve already visited my friends Josh and Mark and had such a great time!",
+        "Thanks, John! I love making him happy.",
+        "Hey John! Long time no chat - I adopted a pup from a shelter in Stamford last week and my days have been so much happier with him in the fam. I named it Ned. Any progress on your gaming goals?"
+      ]
+    },
+    {
+      "sample_id": "conv-47",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "Which places or events have John and James planned to meet at?",
+      "evidence": [
+        "D1:36",
+        "D21:15",
+        "D23:5",
+        "D23:6"
+      ],
+      "retrieved_top_attrs": [
+        "D7:14",
+        "D10:7",
+        "D2:2",
+        "D30:1",
+        "D11:14"
+      ],
+      "retrieved_top_texts": [
+        "Yeah, it's really frustrating when a project doesn't go as planned. What specifically is giving you trouble? Maybe I can offer some assistance.",
+        "It must have been great to see the results of that effort. Have you considered organizing more events like that in the future?",
+        "Hey James, awesome! Glad you're enjoying it and connecting with others. Building a community is really cool, especially when you meet people who enjoy the same things.",
+        "Hey John, hope you're doing well. Yesterday, we started on a road trip. It was fun spending time with the family and my dogs. Exploring new places and taking in nature with the furballs was awesome!",
+        "There are lots of places where you can show off your skills! I'm sure you'll find one that's perfect for you in making a difference."
+      ]
+    },
+    {
+      "sample_id": "conv-47",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "Who or which organizations have been the beneficiaries of John's charity tournaments?",
+      "evidence": [
+        "D10:10",
+        "D10:12",
+        "D29:1"
+      ],
+      "retrieved_top_attrs": [
+        "D10:5",
+        "D10:4",
+        "D18:7",
+        "D11:12",
+        "D13:20"
+      ],
+      "retrieved_top_texts": [
+        "Wow John, organizing that tournament for charity must have been a ton of effort, but it sounds like it was so worth it!",
+        "Nope, not a new game. We put together a tournament for our favorite game, CS:GO. Lots showed up and we made a bunch of money for charity!",
+        "Your support means a lot. Lately, I've been thinking about what truly makes me happy, and I'm really drawn to the gaming industry. I'm passionate about it and it's time to turn that into a career. I want to become an organizer of tournaments for various computer games in our state. For example, for CS:GO. It's a new journey for me.",
+        "That's really inspiring. Have you found any non-profit organizations that align with your values and passion for programming?",
+        "Sure, John!"
+      ]
+    },
+    {
+      "sample_id": "conv-48",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "Did Jolene teach herself how to play the console?",
+      "evidence": [
+        "D2:28",
+        "D24:8"
+      ],
+      "retrieved_top_attrs": [
+        "D3:11",
+        "D19:2",
+        "D2:26",
+        "D2:27",
+        "D20:1"
+      ],
+      "retrieved_top_texts": [
+        "Well... we planned to play the console with my partner.",
+        "Life's been hella busy since we last talked. I bought a console for my partner as a gift on the 17th and it's so much fun, he even managed to play it.! Engineering studies are still going strong too. Balance has been key for me lately. How about you? What's been up?",
+        "They are very unusual pets! Here's me and my partner gaming last week - it's so fun. We played the game \"Detroit\" on the console. We are both crazy about this activity!",
+        "Did your boyfriend teach you to play?",
+        " Long time no talk! We were given a new game for the console last week, it is Battlefield 1. What's been up with you?"
+      ]
+    },
+    {
+      "sample_id": "conv-48",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "How many times has Jolene been to France?",
+      "evidence": [
+        "D2:24",
+        "D1:8"
+      ],
+      "retrieved_top_attrs": [
+        "D9:10",
+        "D16:4",
+        "D30:16",
+        "D9:12",
+        "D21:8"
+      ],
+      "retrieved_top_texts": [
+        "That's really motivating. It's great to have support in tough times.",
+        "Your support means a lot. Susie really helps when times get tough. Pets have been great company. Video games have also been a nice distraction.",
+        "Thanks, Deborah! Appreciating those small things is important. It helps me remember that even when times are tough, there's always something positive to hang onto.",
+        "Yeah, having someone to rely on is key in tough times. It really makes a difference in how we handle life. Plus, there's something I wanted to tell you.",
+        "I was thrilled to receive such positive feedback! It felt so rewarding to know that my efforts were appreciated. Right now, I'm focusing on studying and gaining more experience. I'm even thinking about more internships to further enhance my skills. Exciting times! Hopefully, there will be more updates to share with you soon."
+      ]
+    },
+    {
+      "sample_id": "conv-48",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What activities does Deborah pursue besides practicing and teaching yoga?",
+      "evidence": [
+        "D12:1",
+        "D15:1",
+        "D15:11",
+        "D28:11",
+        "D29:1"
+      ],
+      "retrieved_top_attrs": [
+        "D19:3",
+        "D1:13",
+        "D13:24",
+        "D4:12",
+        "D14:9"
+      ],
+      "retrieved_top_texts": [
+        " Well done! As for me, I've been focusing on teaching yoga and spending time with the community. Organizing a yoga event last month was really cool.",
+        "One of my goals is to keep teaching yoga and supporting my community. I'm passionate about helping people find peace and joy through it.",
+        "I'd recommend practicing mindful breathing for yoga. Set aside a few minutes each day to sit with your eyes closed, take deep breaths, and focus on how the air feels entering and leaving your body. ",
+        "When things get tough, just take a deep breath and remember why you're doing this. This is where I spend a lot of my time, teaching yoga. It's a great way to find balance and reconnect with ourselves. I bonded with Anna during yesterday's l yoga class.",
+        "How have things been besides that?"
+      ]
+    },
+    {
+      "sample_id": "conv-48",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What kind of engineering projects has Jolene worked on?",
+      "evidence": [
+        "D1:2",
+        "D3:1",
+        "D4:5",
+        "D17:10",
+        "D17:12"
+      ],
+      "retrieved_top_attrs": [
+        "D7:10",
+        "D17:7",
+        "D22:6",
+        "D22:8",
+        "D14:13"
+      ],
+      "retrieved_top_texts": [
+        "Wow, your relationship started from a strong friendship. Do you still enjoy working on engineering projects together?",
+        "You have such a knack for turning these into art. They make me feel excited just by looking at them. Your creativity is amazing! Does that usually inspire your engineering projects too?",
+        "Yeah, Deborah! We've been figuring out how to add these values into our projects. As an engineering student, I want to use my talents to do good and help solve important problems. I'm keen on coming up with new ideas and making things more efficient to make the world a better place. Going further, my mom stressed the value of helping others and that's something I want to keep in mind for my engineering projects.",
+        "In the future, I'm aiming to work on projects that make a real difference to communities. I'm interested in sustainable initiatives and developing innovative solutions for environmental issues. I also want to get involved with organizations that focus on social causes, using my skills to help out. It's about connecting my passion for engineering with my commitment to making a positive impact.",
+        "Awesome, Jolene! I'm really glad your project worked out. "
+      ]
+    },
+    {
+      "sample_id": "conv-48",
+      "category": 1,
+      "category_name": "multi-hop",
+      "question": "What symbolic gifts do Deborah and Jolene have from their mothers?",
+      "evidence": [
+        "D1:8",
+        "D1:9"
+      ],
+      "retrieved_top_attrs": [
+        "D22:11",
+        "D2:25",
+        "D25:6",
+        "D14:13",
+        "D9:1"
+      ],
+      "retrieved_top_texts": [
+        "Wow Jolene, that's really inspiring!",
+        "Cool, Jolene! Pets bring so much happiness!",
+        "Glad to hear it, Jolene. How's the project going?",
+        "Awesome, Jolene! I'm really glad your project worked out. ",
+        "Hi Jolene! We haven't corresponded for a long time!"
       ]
     }
   ]
