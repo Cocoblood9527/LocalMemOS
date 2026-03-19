@@ -130,6 +130,7 @@ Use this checklist for each closure round and for final `v1` release preparation
 - `packages/node`: Node SDK wrapper over the native binding
 - `packages/mcp`: MCP adapter built on top of the Node SDK
 - `python`: Python binding and SDK surface
+- `tools/locomo`: LoCoMo retrieval evaluation scripts and regression gate
 - `docs/superpowers`: design, planning, and project workflow documents
 
 ## Environment Setup
@@ -181,6 +182,21 @@ corepack pnpm --dir packages/mcp test
 ```
 
 If all four commands pass, the Rust core and Python/Node/MCP access surfaces are in sync locally.
+
+## LoCoMo Retrieval Path
+
+Use repository-owned scripts for retrieval-focused V2 tracking:
+
+```bash
+tools/locomo/baseline.sh 5
+tools/locomo/qa-proxy.sh 5
+tools/locomo/official-like-eval.sh 5
+tools/locomo/run-regression-gate.sh 5 0.05
+```
+
+- Scripts write artifacts to `/tmp` by default (or `BASE_DIR` when provided).
+- If LoCoMo scores unexpectedly remain old, rebuild local Python binding:
+  `./.venv/bin/python -m pip install -e python`
 
 ## When To Re-Validate Commands
 
