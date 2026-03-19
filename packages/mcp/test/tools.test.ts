@@ -80,4 +80,22 @@ it("mcp tools match core write and recall semantics", async () => {
   });
   const historyParsed = JSON.parse(historyResult.content[0].text);
   expect(historyParsed.length).toBe(2);
+
+  const forgetResult = await server.callTool("memory_forget", {
+    namespace: "workspace",
+    scopeId: "localmemos",
+    entity: "project",
+    attribute: "preferred_package_manager",
+  });
+  const forgetParsed = JSON.parse(forgetResult.content[0].text);
+  expect(forgetParsed.ok).toBe(true);
+
+  const recallAfterForget = await server.callTool("memory_recall", {
+    namespace: "workspace",
+    scopeId: "localmemos",
+    entity: "project",
+    attribute: "preferred_package_manager",
+  });
+  const recallAfterForgetParsed = JSON.parse(recallAfterForget.content[0].text);
+  expect(recallAfterForgetParsed.facts).toEqual([]);
 });

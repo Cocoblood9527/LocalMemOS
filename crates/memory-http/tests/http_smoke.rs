@@ -74,6 +74,42 @@ async fn upsert_and_recall_work_over_http() {
     let parsed: serde_json::Value = serde_json::from_slice(&body).unwrap();
     assert_eq!(parsed["facts"][0]["value_text"], "bun");
 
+    let forget_payload = serde_json::json!({
+        "namespace": "workspace",
+        "scope_id": "localmemos",
+        "entity": "project",
+        "attribute": "preferred_package_manager"
+    });
+    let forget_req = Request::builder()
+        .method("POST")
+        .uri("/facts:forget")
+        .header("content-type", "application/json")
+        .body(Body::from(forget_payload.to_string()))
+        .unwrap();
+    let forget_resp = app.clone().oneshot(forget_req).await.unwrap();
+    assert_eq!(forget_resp.status(), StatusCode::OK);
+
+    let recall_after_forget_req = Request::builder()
+        .method("POST")
+        .uri("/facts:recall")
+        .header("content-type", "application/json")
+        .body(Body::from(recall_payload.to_string()))
+        .unwrap();
+    let recall_after_forget_resp = app.clone().oneshot(recall_after_forget_req).await.unwrap();
+    assert_eq!(recall_after_forget_resp.status(), StatusCode::OK);
+    let recall_after_forget_body = to_bytes(recall_after_forget_resp.into_body(), usize::MAX)
+        .await
+        .unwrap();
+    let recall_after_forget_parsed: serde_json::Value =
+        serde_json::from_slice(&recall_after_forget_body).unwrap();
+    assert_eq!(
+        recall_after_forget_parsed["facts"]
+            .as_array()
+            .unwrap()
+            .len(),
+        0
+    );
+
     let history_req = Request::builder()
         .method("GET")
         .uri(format!("/facts/{current_fact_id}/history"))

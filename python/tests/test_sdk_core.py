@@ -33,3 +33,31 @@ def test_python_sdk_upsert_and_recall(tmp_path):
         attribute="preferred_package_manager",
     )
     assert len(history) == 2
+
+
+def test_python_sdk_forget_retires_fact_from_recall(tmp_path):
+    client = MemoryClient(str(tmp_path / "memory.db"))
+    client.upsert_fact(
+        namespace="workspace",
+        scope_id="localmemos",
+        entity="project",
+        attribute="preferred_package_manager",
+        value="bun",
+        source_kind="manual",
+    )
+
+    forget_result = client.forget(
+        namespace="workspace",
+        scope_id="localmemos",
+        entity="project",
+        attribute="preferred_package_manager",
+    )
+    assert forget_result["ok"] is True
+
+    result = client.recall(
+        namespace="workspace",
+        scope_id="localmemos",
+        entity="project",
+        attribute="preferred_package_manager",
+    )
+    assert result["facts"] == []

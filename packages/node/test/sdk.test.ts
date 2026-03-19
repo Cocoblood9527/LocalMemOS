@@ -65,4 +65,20 @@ it("node sdk preserves core recall and list fields", async () => {
     attribute: "preferred_package_manager",
   });
   expect(history.length).toBe(2);
+
+  const forgetResult = await client.forget({
+    namespace: "workspace",
+    scopeId: "localmemos",
+    entity: "project",
+    attribute: "preferred_package_manager",
+  });
+  expect(forgetResult.ok).toBe(true);
+
+  const afterForget = await client.recall({
+    namespace: "workspace",
+    scopeId: "localmemos",
+    entity: "project",
+    attribute: "preferred_package_manager",
+  });
+  expect(afterForget.facts).toEqual([]);
 });
