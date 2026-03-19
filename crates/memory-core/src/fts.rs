@@ -63,8 +63,17 @@ const STOPWORDS: &[&str] = &[
 ];
 
 const MAX_QUERY_TOKENS: usize = 12;
+const MAX_SEQUENCE_TOKENS: usize = 48;
 
 pub fn normalize_query_tokens(text: &str) -> Vec<String> {
+    tokenize(text, MAX_QUERY_TOKENS, true)
+}
+
+pub fn normalize_query_sequence(text: &str) -> Vec<String> {
+    tokenize(text, MAX_SEQUENCE_TOKENS, false)
+}
+
+fn tokenize(text: &str, max_tokens: usize, dedup: bool) -> Vec<String> {
     let mut token = String::new();
     let mut out = Vec::new();
     let mut seen = HashSet::new();
@@ -76,16 +85,16 @@ pub fn normalize_query_tokens(text: &str) -> Vec<String> {
         }
 
         if !token.is_empty() {
-            push_token(&token, &mut out, &mut seen);
+            push_token(&token, &mut out, &mut seen, dedup);
             token.clear();
-            if out.len() >= MAX_QUERY_TOKENS {
+            if out.len() >= max_tokens {
                 return out;
             }
         }
     }
 
-    if !token.is_empty() && out.len() < MAX_QUERY_TOKENS {
-        push_token(&token, &mut out, &mut seen);
+    if !token.is_empty() && out.len() < max_tokens {
+        push_token(&token, &mut out, &mut seen, dedup);
     }
 
     out
@@ -105,11 +114,11 @@ pub fn build_fts_query(text: &str) -> Option<String> {
     )
 }
 
-fn push_token(token: &str, out: &mut Vec<String>, seen: &mut HashSet<String>) {
+fn push_token(token: &str, out: &mut Vec<String>, seen: &mut HashSet<String>, dedup: bool) {
     if token.len() < 2 || STOPWORDS.contains(&token) {
         return;
     }
-    if seen.insert(token.to_owned()) {
+    if !dedup || seen.insert(token.to_owned()) {
         out.push(token.to_owned());
     }
 }
