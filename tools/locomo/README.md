@@ -51,3 +51,19 @@ Failure samples output path defaults to:
 ```bash
 REBUILD_PYTHON=0 tools/locomo/run-full-gate.sh 5
 ```
+
+## CI Gate
+
+GitHub Actions workflow `.github/workflows/locomo-full-gate.yml` runs:
+
+```bash
+REBUILD_PYTHON=0 tools/locomo/run-full-gate.sh 5
+```
+
+Triggers:
+
+- pull requests to `main`
+- pushes to `main`
+- manual `workflow_dispatch`
+
+The workflow uploads gate logs (and result JSON when present) as artifacts.
