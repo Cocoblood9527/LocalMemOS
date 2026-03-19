@@ -1,11 +1,13 @@
-use std::sync::atomic::{AtomicU64, Ordering};
+use std::cmp::Ordering;
+use std::collections::HashSet;
+use std::sync::atomic::{AtomicU64, Ordering as AtomicOrdering};
 use std::time::{SystemTime, UNIX_EPOCH};
 
 use chrono::{DateTime, Utc};
 use rusqlite::OptionalExtension;
 
 use crate::error::MemoryError;
-use crate::fts::upsert_fts_row;
+use crate::fts::{build_fts_query, normalize_query_tokens, upsert_fts_row};
 use crate::model::{FactRecord, FactVersionRecord, RecallResponse};
 use crate::request::{ForgetRequest, ListRequest, RecallRequest, UpsertFactRequest};
 
@@ -204,40 +206,75 @@ impl MemoryStore {
         text_query: &str,
         effective_at: DateTime<Utc>,
     ) -> Result<RecallResponse, MemoryError> {
+        let query_tokens = normalize_query_tokens(text_query);
+        let fts_query = match build_fts_query(text_query) {
+            Some(q) => q,
+            None => return Ok(RecallResponse { facts: Vec::new() }),
+        };
         let effective_at_text = effective_at.to_rfc3339();
         let mut stmt = self.conn.prepare(
-            "SELECT DISTINCT f.id, f.namespace, f.scope_id, f.entity, f.attribute, f.value_json, f.value_text, f.confidence, f.valid_from, f.valid_to, f.updated_at
+            "SELECT DISTINCT f.id, f.namespace, f.scope_id, f.entity, f.attribute, f.value_json, f.value_text, f.confidence, f.valid_from, f.valid_to, f.updated_at,
+                             facts_fts.entity, facts_fts.attribute, facts_fts.value_text, facts_fts.evidence_summary,
+                             bm25(facts_fts, 0.0, 0.0, 1.4, 1.8, 2.4, 1.2) AS bm25_rank
              FROM facts f
              INNER JOIN facts_fts ON facts_fts.fact_id = f.id
              WHERE f.namespace = ?1 AND f.scope_id = ?2
                AND julianday(f.valid_from) <= julianday(?3)
                AND (f.valid_to IS NULL OR julianday(f.valid_to) > julianday(?3))
                AND facts_fts MATCH ?4
-             ORDER BY f.updated_at DESC",
+             ORDER BY bm25_rank ASC, f.updated_at DESC",
         )?;
         let raw_rows = stmt.query_map(
-            rusqlite::params![namespace, scope_id, effective_at_text, text_query],
+            rusqlite::params![namespace, scope_id, effective_at_text, fts_query],
             |row| {
-                Ok(RawFact {
-                    id: row.get(0)?,
-                    namespace: row.get(1)?,
-                    scope_id: row.get(2)?,
-                    entity: row.get(3)?,
-                    attribute: row.get(4)?,
-                    value_json: row.get(5)?,
-                    value_text: row.get(6)?,
-                    confidence: row.get(7)?,
-                    valid_from: row.get(8)?,
-                    valid_to: row.get(9)?,
-                    updated_at: row.get(10)?,
+                Ok(RankedFactRow {
+                    raw: RawFact {
+                        id: row.get(0)?,
+                        namespace: row.get(1)?,
+                        scope_id: row.get(2)?,
+                        entity: row.get(3)?,
+                        attribute: row.get(4)?,
+                        value_json: row.get(5)?,
+                        value_text: row.get(6)?,
+                        confidence: row.get(7)?,
+                        valid_from: row.get(8)?,
+                        valid_to: row.get(9)?,
+                        updated_at: row.get(10)?,
+                    },
+                    fts_entity: row.get(11)?,
+                    fts_attribute: row.get(12)?,
+                    fts_value_text: row.get(13)?,
+                    fts_evidence_summary: row.get(14)?,
+                    bm25_rank: row.get(15)?,
                 })
             },
         )?;
 
-        let mut facts = Vec::new();
+        let mut ranked_facts = Vec::new();
         for raw in raw_rows {
-            facts.push(raw_to_fact(raw?)?);
+            let row = raw?;
+            let lexical_score = lexical_overlap_score(
+                &query_tokens,
+                &row.fts_entity,
+                &row.fts_attribute,
+                row.fts_value_text.as_deref(),
+                row.fts_evidence_summary.as_deref(),
+            );
+            ranked_facts.push((raw_to_fact(row.raw)?, row.bm25_rank, lexical_score));
         }
+
+        ranked_facts.sort_by(|left, right| {
+            left.1
+                .partial_cmp(&right.1)
+                .unwrap_or(Ordering::Equal)
+                .then_with(|| right.2.partial_cmp(&left.2).unwrap_or(Ordering::Equal))
+                .then_with(|| right.0.updated_at.cmp(&left.0.updated_at))
+        });
+
+        let facts = ranked_facts
+            .into_iter()
+            .map(|(fact, _, _)| fact)
+            .collect::<Vec<FactRecord>>();
         Ok(RecallResponse { facts })
     }
 
@@ -505,6 +542,42 @@ fn value_as_text(value: &serde_json::Value) -> Option<String> {
     }
 }
 
+fn lexical_overlap_score(
+    query_tokens: &[String],
+    entity: &str,
+    attribute: &str,
+    value_text: Option<&str>,
+    evidence_summary: Option<&str>,
+) -> f64 {
+    if query_tokens.is_empty() {
+        return 0.0;
+    }
+
+    let mut candidate_tokens = HashSet::new();
+    for token in normalize_query_tokens(entity) {
+        candidate_tokens.insert(token);
+    }
+    for token in normalize_query_tokens(attribute) {
+        candidate_tokens.insert(token);
+    }
+    if let Some(text) = value_text {
+        for token in normalize_query_tokens(text) {
+            candidate_tokens.insert(token);
+        }
+    }
+    if let Some(text) = evidence_summary {
+        for token in normalize_query_tokens(text) {
+            candidate_tokens.insert(token);
+        }
+    }
+
+    let overlap = query_tokens
+        .iter()
+        .filter(|token| candidate_tokens.contains(*token))
+        .count();
+    overlap as f64 / query_tokens.len() as f64
+}
+
 fn raw_to_fact(raw: RawFact) -> Result<FactRecord, MemoryError> {
     Ok(FactRecord {
         id: raw.id,
@@ -554,7 +627,7 @@ fn generate_id(prefix: &str) -> String {
         .duration_since(UNIX_EPOCH)
         .map(|d| d.as_nanos())
         .unwrap_or(0);
-    let seq = ID_COUNTER.fetch_add(1, Ordering::Relaxed);
+    let seq = ID_COUNTER.fetch_add(1, AtomicOrdering::Relaxed);
     format!("{prefix}-{nanos}-{seq}")
 }
 
@@ -585,4 +658,13 @@ struct RawFactVersion {
     valid_from: String,
     valid_to: Option<String>,
     created_at: String,
+}
+
+struct RankedFactRow {
+    raw: RawFact,
+    fts_entity: String,
+    fts_attribute: String,
+    fts_value_text: Option<String>,
+    fts_evidence_summary: Option<String>,
+    bm25_rank: f64,
 }

@@ -62,3 +62,94 @@ fn text_query_honors_as_of_time() {
         Some("Uses bun and Rust core")
     );
 }
+
+#[test]
+fn natural_language_question_retrieves_relevant_fact() {
+    let mut store = MemoryStore::open(":memory:").unwrap();
+    store
+        .upsert_fact(UpsertFactRequest::manual(
+            "workspace",
+            "localmemos",
+            "project",
+            "preferred_package_manager",
+            "We use bun to install workspace dependencies",
+        ))
+        .unwrap();
+    store
+        .upsert_fact(UpsertFactRequest::manual(
+            "workspace",
+            "localmemos",
+            "project",
+            "runtime",
+            "Runtime is Rust with Axum",
+        ))
+        .unwrap();
+
+    let result = store
+        .recall(RecallRequest::text(
+            "workspace",
+            "localmemos",
+            "What package manager do we use to install dependencies for this workspace?",
+        ))
+        .unwrap();
+
+    assert!(!result.facts.is_empty());
+    assert_eq!(result.facts[0].attribute, "preferred_package_manager");
+}
+
+#[test]
+fn punctuation_heavy_question_does_not_fail_query() {
+    let mut store = MemoryStore::open(":memory:").unwrap();
+    store
+        .upsert_fact(UpsertFactRequest::manual(
+            "workspace",
+            "localmemos",
+            "project",
+            "summary",
+            "Uses bun and Rust core",
+        ))
+        .unwrap();
+
+    let result = store
+        .recall(RecallRequest::text(
+            "workspace",
+            "localmemos",
+            "bun??? rust!!!",
+        ))
+        .unwrap();
+    assert_eq!(result.facts.len(), 1);
+}
+
+#[test]
+fn ranking_prefers_facts_with_more_query_overlap() {
+    let mut store = MemoryStore::open(":memory:").unwrap();
+    store
+        .upsert_fact(UpsertFactRequest::manual(
+            "benchmark",
+            "sample-1",
+            "dialog",
+            "10",
+            "Alex booked a flight to Seattle on March 3",
+        ))
+        .unwrap();
+    store
+        .upsert_fact(UpsertFactRequest::manual(
+            "benchmark",
+            "sample-1",
+            "dialog",
+            "11",
+            "Alex likes coffee",
+        ))
+        .unwrap();
+
+    let result = store
+        .recall(RecallRequest::text(
+            "benchmark",
+            "sample-1",
+            "When did Alex book a flight to Seattle?",
+        ))
+        .unwrap();
+
+    assert!(!result.facts.is_empty());
+    assert_eq!(result.facts[0].attribute, "10");
+}
