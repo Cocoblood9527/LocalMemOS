@@ -33,8 +33,13 @@ const STOPWORDS: &[&str] = &[
     "are",
     "as",
     "at",
+    "activities",
+    "activity",
     "be",
+    "been",
     "by",
+    "change",
+    "changes",
     "did",
     "do",
     "does",
@@ -62,6 +67,8 @@ const STOPWORDS: &[&str] = &[
     "their",
     "this",
     "to",
+    "way",
+    "ways",
     "was",
     "we",
     "what",
@@ -149,10 +156,38 @@ mod tests {
         let tokens = normalize_query_tokens("What activities has Melanie done with her family?");
         assert_eq!(
             tokens,
+            vec!["melanie".to_string(), "family".to_string()]
+        );
+    }
+
+    #[test]
+    fn query_tokens_drop_generic_way_and_change_fillers() {
+        let tokens = normalize_query_tokens(
+            "In what ways has Caroline seen changes during her transition journey?",
+        );
+        assert_eq!(
+            tokens,
             vec![
-                "activities".to_string(),
-                "melanie".to_string(),
-                "family".to_string()
+                "caroline".to_string(),
+                "seen".to_string(),
+                "during".to_string(),
+                "transition".to_string(),
+                "journey".to_string()
+            ]
+        );
+    }
+
+    #[test]
+    fn query_tokens_drop_been_for_open_question() {
+        let tokens = normalize_query_tokens("How has Nate been doing in his new city lately?");
+        assert_eq!(
+            tokens,
+            vec![
+                "nate".to_string(),
+                "doing".to_string(),
+                "new".to_string(),
+                "city".to_string(),
+                "lately".to_string()
             ]
         );
     }
