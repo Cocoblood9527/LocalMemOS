@@ -29,6 +29,19 @@ Out of scope for `v1`:
 - multi-user or multi-tenant support
 - reflective, episodic, emotional, or procedural memory systems
 
+## V1 Done Definition
+
+`v1` is considered complete only when all of the following remain true:
+
+- scope stays within current `v1` boundaries (no automatic extraction, vector-first retrieval, graph-native memory, or cloud/multi-tenant expansion)
+- `memory-core` remains the single semantic source of truth for write/recall/history behavior
+- HTTP/Python/Node/MCP adapters remain thin and semantically aligned with core primitives
+- required verification commands pass in order:
+  - `cargo test --workspace`
+  - `./.venv/bin/pytest python/tests -q`
+  - `corepack pnpm --dir packages/node test`
+  - `corepack pnpm --dir packages/mcp test`
+
 ## Role-Based Operation Paths
 
 Use the role path that best matches your current change. If unsure, start with `Clean-Run Verifier`, then apply `Failure Triage Rule`.
@@ -98,6 +111,16 @@ Use this table to pick first-pass checks from touched areas. Before closing a ro
 | mixed or unclear multi-surface changes | run full `Minimum Regression Order` immediately | Classify failures with `Failure Triage Rule` |
 
 If scope is unclear or failure classification is ambiguous at any point, apply `Failure Triage Rule` and use full `Minimum Regression Order`.
+
+## Release Closure Checklist
+
+Use this checklist for each closure round and for final `v1` release preparation:
+
+1. Run the four required verification commands in order.
+2. If any step fails, apply `Failure Triage Rule` before making more changes.
+3. Keep commit sequence explicit: `spec -> plan -> implementation`.
+4. Push `main` after verification and commit checks pass.
+5. Create and push stable tag using `v1.x-docs-stable` naming.
 
 ## Repository Layout
 
